@@ -27,6 +27,7 @@
       --shadow: 0 20px 55px rgba(17, 48, 80, .14);
       --nav-w: 224px;
       --drawer-w: 430px;
+      --header-h: 58px;
     }
 
     * { box-sizing: border-box; }
@@ -57,119 +58,44 @@
       top: 0;
       z-index: 20;
       color: #f7fbff;
-      background:
-        radial-gradient(circle at 78% 0, rgba(255,255,255,.16), transparent 32%),
-        linear-gradient(135deg, #234d6b, #638aa2);
-      box-shadow: 0 12px 30px rgba(7, 26, 45, .2);
+      background: linear-gradient(135deg, #061a2d, #718997);
+      box-shadow: 0 4px 16px rgba(7, 26, 45, .2);
     }
 
     .mast {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+      display: flex;
       align-items: center;
-      gap: 24px;
-      padding: 18px clamp(20px, 3vw, 42px) 12px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .mast::after {
-      content: "";
-      position: absolute;
-      right: -24px;
-      top: -42px;
-      width: 430px;
-      height: 145px;
-      opacity: .23;
-      background:
-        linear-gradient(45deg, transparent 46%, rgba(255,255,255,.75) 47% 53%, transparent 54%) 0 0 / 74px 74px,
-        linear-gradient(-45deg, transparent 46%, rgba(255,255,255,.75) 47% 53%, transparent 54%) 0 0 / 74px 74px;
-      pointer-events: none;
+      gap: 16px;
+      padding: 10px clamp(16px, 2.5vw, 28px);
+      height: var(--header-h);
     }
 
     .brand {
-      display: grid;
-      grid-template-columns: 112px minmax(0, 1fr);
-      gap: 16px;
+      display: flex;
       align-items: center;
-      min-width: 0;
-      position: relative;
-      z-index: 1;
-    }
-
-    .brand > div {
-      min-width: 0;
+      flex-shrink: 0;
     }
 
     .brand-logo {
-      width: 112px;
-      height: 54px;
+      width: 80px;
+      height: 38px;
       object-fit: contain;
-      filter: brightness(0) invert(1);
-    }
-
-    .brand h1 {
-      margin: 0;
-      font-size: clamp(20px, 2.2vw, 27px);
-      line-height: 1.1;
-      letter-spacing: 0;
-      overflow-wrap: anywhere;
-    }
-
-    .brand p {
-      margin: 5px 0 0;
-      color: rgba(247,251,255,.78);
-      font-size: 13px;
-      font-weight: 650;
-      overflow-wrap: anywhere;
-    }
-
-    .kpi-mark {
-      color: rgba(247,251,255,.72);
-      font-size: clamp(42px, 5.5vw, 64px);
-      font-weight: 900;
-      letter-spacing: 8px;
-      line-height: 1;
-      position: relative;
-      z-index: 1;
-    }
-
-    .year-box {
-      justify-self: end;
-      text-align: right;
-      font-weight: 900;
-      position: relative;
-      z-index: 1;
-    }
-
-    .year-box strong {
-      display: block;
-      font-size: clamp(34px, 4.5vw, 50px);
-      line-height: .95;
-    }
-
-    .year-box span {
-      display: block;
-      margin-top: 5px;
-      color: rgba(247,251,255,.76);
-      font-size: clamp(20px, 2.2vw, 28px);
+      border-radius: 4px;
     }
 
     .quarters {
+      flex: 1;
       display: flex;
       justify-content: center;
       gap: 8px;
-      padding: 0 18px 14px;
-      position: relative;
-      z-index: 1;
       flex-wrap: wrap;
     }
 
     .quarter {
       border: 1px solid rgba(255,255,255,.36);
       border-radius: 999px;
-      min-width: 94px;
-      padding: 8px 14px;
+      min-width: 90px;
+      padding: 7px 14px;
       color: #f7fbff;
       background: rgba(255,255,255,.08);
       font-size: 13px;
@@ -183,11 +109,51 @@
       border-color: #fff;
     }
 
+    .user-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .user-avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.18);
+      border: 1px solid rgba(255,255,255,.35);
+      display: grid;
+      place-items: center;
+      font-size: 11px;
+      font-weight: 800;
+      color: #f7fbff;
+      letter-spacing: .5px;
+      flex-shrink: 0;
+    }
+
+    .user-details b {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      color: #f7fbff;
+      line-height: 1.2;
+    }
+
+    .user-details span {
+      display: block;
+      font-size: 11px;
+      color: rgba(247,251,255,.68);
+    }
+
     .front-kpis {
       display: grid;
       grid-template-columns: repeat(6, minmax(0, 1fr));
       background: rgba(255,255,255,.98);
-      border-top: 1px solid rgba(255,255,255,.35);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 14px rgba(17, 48, 80, .07);
     }
 
     .front-kpi {
@@ -215,7 +181,7 @@
       display: grid;
       place-items: center;
       color: #fff;
-      background: linear-gradient(135deg, #0f57b3, #2474d9);
+      background: linear-gradient(135deg, #182d3f, #637a89);
       box-shadow: 0 12px 24px rgba(20, 95, 184, .25);
     }
 
@@ -230,7 +196,7 @@
 
     .front-kpi strong {
       display: block;
-      color: var(--blue);
+      color: #2d4354;
       font-size: clamp(27px, 2.4vw, 36px);
       line-height: 1;
       white-space: nowrap;
@@ -247,13 +213,13 @@
     .shell {
       display: grid;
       grid-template-columns: var(--nav-w) minmax(0, 1fr);
-      min-height: calc(100vh - 230px);
+      min-height: calc(100vh - var(--header-h));
     }
 
     .nav {
       position: sticky;
-      top: 230px;
-      height: calc(100vh - 230px);
+      top: var(--header-h);
+      height: calc(100vh - var(--header-h));
       overflow: auto;
       background: var(--nav);
       color: #d6e7f8;
@@ -1091,26 +1057,30 @@
     }
 
     @media (max-width: 620px) {
-      .mast { padding: 18px 20px 12px; }
-      .brand {
-        grid-template-columns: 82px minmax(0, 1fr);
-        gap: 12px;
+      .mast {
+        flex-wrap: wrap;
+        padding: 8px 16px;
+        gap: 8px;
+        height: auto;
       }
       .brand-logo {
-        width: 82px;
-        height: 44px;
+        width: 68px;
+        height: 32px;
       }
-      .brand h1 { font-size: 18px; }
-      .brand p { font-size: 12px; line-height: 1.35; }
       .quarters {
+        order: 3;
+        width: 100%;
         display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        padding-inline: 20px;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 6px;
       }
       .quarter {
         width: 100%;
         min-width: 0;
+        text-align: center;
+        padding: 6px 8px;
       }
+      .user-details { display: none; }
       .front-kpis,
       .scoreline,
       .district-strip,
@@ -1157,32 +1127,25 @@
   <header class="topbar">
     <div class="mast">
       <div class="brand">
-        <img class="brand-logo" src="claude/v2/images/cerr_logo-removebg-preview.png" alt="CERR">
-        <div>
-          <h1>Андижон вилояти</h1>
-          <p>мақсад · топшириқ · далил мониторинги</p>
+        <img class="brand-logo" src="images/logo.svg" alt="CERR">
+      </div>
+      <div class="quarters" id="quarters"></div>
+      <div class="user-info">
+        <div class="user-avatar">ЮУ</div>
+        <div class="user-details">
+          <b>Юнус У.</b>
+          <span>Андижон вилояти</span>
         </div>
       </div>
-      <div class="kpi-mark">KPI</div>
-      <div class="year-box">
-        <strong>2026</strong>
-        <span id="currentQuarterLabel">II-чорак</span>
-      </div>
     </div>
-    <div class="quarters" id="quarters"></div>
-    <div class="front-kpis" id="frontKpis"></div>
   </header>
 
   <div class="shell">
     <aside class="nav">
       <div class="nav-title">
         <b>Ҳудудлар мониторинги</b>
-        <span>раҳбариятдан манбагача</span>
       </div>
       <nav class="nav-list" id="sideNav"></nav>
-      <div class="nav-note">
-        Биринчи экран раҳбарият саволига жавоб беради: қайси KPI ортда, қайси ҳудуд масъул, қайси далил йўқ.
-      </div>
     </aside>
 
     <main class="main">
@@ -1241,13 +1204,13 @@
 
     const quarters = ['I-чорак', 'II-чорак', 'III-чорак', 'IV-чорак'];
     const nav = [
-      ['command', 'Бошқарув', '01', 'қарор'],
+      ['command', 'Бош саҳифа', '01', ''],
       ['sectors', 'Йўналишлар', '02', '6'],
       ['districts', 'Туманлар', '03', '16'],
       ['monitoring', 'Мониторинг', '04', ''],
-      ['tasks', 'Топшириқлар', '05', ''],
-      ['evidence', 'Далиллар', '06', ''],
-      ['sources', 'Манбалар', '07', '8']
+      // ['tasks', 'Топшириқлар', '05', ''],
+      // ['evidence', 'Далиллар', '06', ''],
+      // ['sources', 'Манбалар', '07', '8']
     ];
 
     const kpis = [
@@ -1421,7 +1384,6 @@
     }
 
     function renderQuarters() {
-      $('#currentQuarterLabel').textContent = state.quarter;
       $('#quarters').innerHTML = quarters.map(q => `<button class="quarter ${q === state.quarter ? 'active' : ''}" data-quarter="${q}">${q}</button>`).join('');
     }
 
@@ -1431,7 +1393,6 @@
 
     function render() {
       renderNav();
-      renderFrontKpis();
       $$('.view').forEach(v => v.classList.toggle('active', v.id === `view-${state.view}`));
       const titles = {
         command:['Бошқарув маркази','Аввал қарор талаб қиладиган KPI ва топшириқлар, кейин туман, сектор, манба ва далил.'],
@@ -1444,6 +1405,7 @@
       };
       $('#pageTitle').textContent = titles[state.view][0];
       $('#pageSub').textContent = titles[state.view][1];
+      $('.filters').style.display = ['command', 'sectors', 'districts'].includes(state.view) ? 'none' : '';
       if (state.view === 'command') renderCommand();
       if (state.view === 'sectors') renderSectors();
       if (state.view === 'districts') renderDistricts();
@@ -1500,6 +1462,7 @@
       const missing = visibleRows.filter(r => /киритилмаган|керак|йўқ/i.test(r.evidence)).length;
       const sortedDistricts = [...districts].filter(d => d.name !== 'Андижон вилояти').sort((a,b) => b.undone - a.undone).slice(0, 8);
       $('#view-command').innerHTML = `
+        <div class="front-kpis" id="frontKpis"></div>
         <div class="scoreline">
           <div class="score"><span>Намуна мониторинг қаторлари</span><strong>${visibleRows.length}</strong></div>
           <div class="score"><span>Тасдиқланган ижро</span><strong class="text-green">${visibleRows.filter(r => r.status === 'Яшил').length}</strong></div>
@@ -1525,6 +1488,7 @@
           <div class="surface-head"><div><h3>Туманлар бўйича бажарилмаган топшириқлар</h3><p>Рейтинг эмас; бажарилмаган / жами топшириқ кўринади.</p></div><button class="cmd secondary" data-go="districts">Барча туманлар</button></div>
           <div class="district-strip">${sortedDistricts.map(districtButton).join('')}</div>
         </div>`;
+      renderFrontKpis();
       bindRowsAndDistricts();
       $('[data-go="districts"]').addEventListener('click', () => { state.view = 'districts'; render(); });
     }
