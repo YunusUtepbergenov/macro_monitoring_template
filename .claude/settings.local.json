@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -n \"^\\\\s*[a-z]*: {$\\\\|data-kpi=\" \"C:\\\\Users\\\\y.utepbergenov\\\\Desktop\\\\macro_manitoring\\\\index.html\")",
+      "Bash(grep *)"
+    ]
+  }
+}

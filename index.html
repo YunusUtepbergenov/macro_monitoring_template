@@ -200,6 +200,10 @@
   .task-meta { font-size: 11px; color: var(--gray-400); margin-top: 2px; }
   .task-pct  { font-size: 13px; font-weight: 700; white-space: nowrap; }
 
+  .kpi-card-actions {
+    display: flex; flex-wrap: wrap; gap: 8px; margin: 4px 0;
+  }
+
   .districts-btn {
     display: inline-flex; align-items: center; gap: 8px;
     padding: 9px 18px; border-radius: 9px; border: none;
@@ -247,8 +251,8 @@
   }
   .district-card:hover { box-shadow: var(--shadow); border-color: var(--gray-300); }
   .district-name   { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
-  .district-val    { font-size: 20px; font-weight: 800; }
-  .district-growth { font-size: 12px; font-weight: 600; margin-top: 2px; }
+  .district-growth { font-size: 20px; font-weight: 800; }
+  .district-val    { font-size: 12px; font-weight: 600; color: var(--gray-400); margin-top: 2px; }
   .district-growth.up  { color: var(--green); }
   .district-growth.ok  { color: var(--amber); }
   .district-growth.bad { color: var(--rose); }
@@ -285,13 +289,7 @@
     box-shadow: 0 4px 16px rgba(0,0,0,.10);
     transform: translateY(-1px);
   }
-  .kpi-card.clickable::after {
-    content: '▶ Вазифаларни кўриш';
-    position: absolute; bottom: 8px; right: 10px;
-    font-size: 10px; font-weight: 600; color: var(--tc);
-    opacity: 0; transition: opacity .15s;
-  }
-  .kpi-card.clickable:hover::after { opacity: .7; }
+
   .kpi-card.clickable.selected {
     border-left-width: 6px;
     box-shadow: 0 4px 20px rgba(0,0,0,.13);
@@ -299,7 +297,7 @@
     outline: 2px solid var(--tc);
     outline-offset: -2px;
   }
-  .kpi-card.clickable.selected::after { content: ''; }
+
 
   /* ── TASKS PANEL HEADER ─── */
   .tasks-panel-header {
@@ -692,21 +690,28 @@
         <div class="kpi-cards" id="sec1-kpi-cards">
 
           <div class="kpi-card clickable" data-kpi="sanoat" onclick="selectKpi(this,'sanoat')">
-            <div class="kpi-card-title">⚙️ Саноат маҳсулотлари ишлаб чиқариш</div>
+            <div class="kpi-card-header">
+              <div class="kpi-card-title">⚙️ Саноат маҳсулотлари ишлаб чиқариш</div>
+              <div class="task-badge" id="tbadge-kpi-sanoat"></div>
+            </div>
             <div class="kpi-card-nums">
               <div><div class="kpi-card-big">+8,4%</div><div class="kpi-card-sub">I чорак ўсиши</div></div>
-              <div><div style="font-size:14px;font-weight:700;color:var(--green)">▲ +8,2%</div><div class="kpi-card-sub">Йиллик мақсад</div></div>
             </div>
             <div class="bar-wrap">
               <div class="bar-track"><div class="bar-fill" style="width:21%"></div></div>
               <div class="bar-labels"><span>I чорак: 21% бажарилди</span><span>Мақсад: +8,2%</span></div>
             </div>
           </div>
+          <div class="kpi-card-actions">
+            <button class="districts-btn" onclick="openModal('modal-macro')">🗺️ Туман саноат режаси</button>
+          </div>
           <div class="kpi-card clickable" data-kpi="qishloq" onclick="selectKpi(this,'qishloq')">
-            <div class="kpi-card-title">🌾 Қишлоқ хўжалиги маҳсулотлари</div>
+            <div class="kpi-card-header">
+              <div class="kpi-card-title">🌾 Қишлоқ хўжалиги маҳсулотлари</div>
+              <div class="task-badge" id="tbadge-kpi-qishloq"></div>
+            </div>
             <div class="kpi-card-nums">
               <div><div class="kpi-card-big">+5,7%</div><div class="kpi-card-sub">I чорак ўсиши</div></div>
-              <div><div style="font-size:14px;font-weight:700;color:var(--green)">▲ +4,9%</div><div class="kpi-card-sub">Йиллик мақсад</div></div>
             </div>
             <div class="bar-wrap">
               <div class="bar-track"><div class="bar-fill" style="width:9%"></div></div>
@@ -714,10 +719,12 @@
             </div>
           </div>
           <div class="kpi-card clickable" data-kpi="qurilish" onclick="selectKpi(this,'qurilish')">
-            <div class="kpi-card-title">🏗️ Қурилиш ишлари</div>
+            <div class="kpi-card-header">
+              <div class="kpi-card-title">🏗️ Қурилиш ишлари</div>
+              <div class="task-badge" id="tbadge-kpi-qurilish"></div>
+            </div>
             <div class="kpi-card-nums">
               <div><div class="kpi-card-big">+13,5%</div><div class="kpi-card-sub">I чорак ўсиши</div></div>
-              <div><div style="font-size:14px;font-weight:700;color:var(--green)">▲ +12,5%</div><div class="kpi-card-sub">Йиллик мақсад</div></div>
             </div>
             <div class="bar-wrap">
               <div class="bar-track"><div class="bar-fill" style="width:18%"></div></div>
@@ -725,17 +732,18 @@
             </div>
           </div>
           <div class="kpi-card clickable" data-kpi="bozor" onclick="selectKpi(this,'bozor')">
-            <div class="kpi-card-title">🛍️ Бозор хизматлари</div>
+            <div class="kpi-card-header">
+              <div class="kpi-card-title">🛍️ Бозор хизматлари</div>
+              <div class="task-badge" id="tbadge-kpi-bozor"></div>
+            </div>
             <div class="kpi-card-nums">
               <div><div class="kpi-card-big">+14,2%</div><div class="kpi-card-sub">I чорак ўсиши</div></div>
-              <div><div style="font-size:14px;font-weight:700;color:var(--green)">▲ +15,5%</div><div class="kpi-card-sub">Йиллик мақсад</div></div>
             </div>
             <div class="bar-wrap">
               <div class="bar-track"><div class="bar-fill" style="width:22%"></div></div>
               <div class="bar-labels"><span>I чорак: 22% бажарилди</span><span>Мақсад: +15,5%</span></div>
             </div>
           </div>
-          <button class="districts-btn" onclick="openModal('modal-macro')">🗺️ Туманлар бўйича кўриш</button>
         </div>
 
         <div>
@@ -1733,7 +1741,6 @@
             <div class="kpi-card-title">📉 Ишсизлик даражаси</div>
             <div class="kpi-card-nums">
               <div><div class="kpi-card-big">3.84%</div><div class="kpi-card-sub">Ярим йиллик кутилаётган</div></div>
-              <div><div style="font-size:14px;font-weight:700;color:var(--rose)">→ 3.6%</div><div class="kpi-card-sub">Йиллик мақсад</div></div>
             </div>
             <div class="kpi-card-plan">Камайиши керак: <span>0.24 пп</span> • Андижон ш: <span>2.8%</span> (энг яхши)</div>
             <div class="bar-wrap">
@@ -1745,7 +1752,6 @@
             <div class="kpi-card-title">🏠 Камбағаллик даражаси</div>
             <div class="kpi-card-nums">
               <div><div class="kpi-card-big">4.5%</div><div class="kpi-card-sub">Ярим йиллик кутилаётган</div></div>
-              <div><div style="font-size:14px;font-weight:700;color:var(--rose)">→ 2.7%</div><div class="kpi-card-sub">Йиллик мақсад</div></div>
             </div>
             <div class="kpi-card-plan">Камайиши керак: <span>1.8 пп</span> • 4 та туман "холи ҳудуд" мақсади бор</div>
             <div class="bar-wrap">
@@ -1757,7 +1763,6 @@
             <div class="kpi-card-title">💼 Доимий иш жойи бериш</div>
             <div class="kpi-card-nums">
               <div><div class="kpi-card-big">38 944</div><div class="kpi-card-sub">Ярим йиллик режа (киши)</div></div>
-              <div><div style="font-size:14px;font-weight:700;color:var(--rose)">→ 86 674</div><div class="kpi-card-sub">Йиллик мақсад</div></div>
             </div>
             <div class="kpi-card-plan">Андижон ш: <span>18 076</span> • Асака: <span>8 821</span> • Шаҳрихон: <span>7 493</span></div>
             <div class="bar-wrap">
@@ -1769,7 +1774,6 @@
             <div class="kpi-card-title">🏘️ МФЙ — Камбағаллик ва ишсизликдан холи</div>
             <div class="kpi-card-nums">
               <div><div class="kpi-card-big">246 та</div><div class="kpi-card-sub">Ярим йиллик мақсад (МФЙ)</div></div>
-              <div><div style="font-size:14px;font-weight:700;color:var(--rose)">→ 442 та</div><div class="kpi-card-sub">Йиллик мақсад</div></div>
             </div>
             <div class="kpi-card-plan">Асака: <span>76 та</span> • Шаҳрихон: <span>79 та</span> • Андижон ш: <span>55 та</span></div>
             <div class="bar-wrap">
@@ -2462,10 +2466,48 @@ function renderTasks(key) {
   }
 }
 
+let currentKpiKey = null;
+
+function renderKpiBadge(key) {
+  const badge = document.getElementById('tbadge-kpi-' + key);
+  if (!badge) return;
+  const data = kpiTasks[key];
+  if (!data) return;
+  let total = 0, finished = 0;
+  if (data.items) {
+    total = data.items.length;
+    finished = data.items.filter(t => t.done).length;
+  } else {
+    const tmp = document.createElement('div');
+    tmp.innerHTML = data.html;
+    const checks = tmp.querySelectorAll('.vtask-card-check');
+    total = checks.length;
+    checks.forEach(cb => { if (cb.textContent.trim() === '✓') finished++; });
+  }
+  badge.innerHTML = `
+    <div class="task-badge-text">
+      <div class="task-badge-count">${finished}/${total}</div>
+      <div class="task-badge-label">вазифа</div>
+    </div>`;
+}
+
+function renderKpiBadgeFromPanel(key) {
+  const badge = document.getElementById('tbadge-kpi-' + key);
+  const panel = document.getElementById('sec1-tasks');
+  if (!badge || !panel) return;
+  const all  = panel.querySelectorAll('.vtask-card, .task-item');
+  const done = panel.querySelectorAll('.vtask-card-check.done, .task-checkbox.done');
+  badge.innerHTML = `
+    <div class="task-badge-text">
+      <div class="task-badge-count">${done.length}/${all.length}</div>
+      <div class="task-badge-label">вазифа</div>
+    </div>`;
+}
+
 function selectKpi(el, key) {
-  // Remove selected from all kpi cards in this section
   document.querySelectorAll('#sec1-kpi-cards .kpi-card.clickable').forEach(c => c.classList.remove('selected'));
   el.classList.add('selected');
+  currentKpiKey = key;
   renderTasks(key);
 }
 
@@ -2551,6 +2593,7 @@ function selectKpi(el, key) {
 // Init task badges on load
 document.addEventListener('DOMContentLoaded', () => {
   ['sec1','sec2','sec3','sec4','sec5','sec6'].forEach(renderTaskBadge);
+  ['sanoat','qishloq','qurilish','bozor'].forEach(renderKpiBadge);
 });
 
 function selectQuarter(el, key) {
@@ -2606,6 +2649,7 @@ function toggleTask(el) {
   cb.textContent = cb.classList.contains('done') ? '✓' : '';
   const sec = el.closest('.section-block');
   if (sec) renderTaskBadge(sec.id);
+  if (currentKpiKey) renderKpiBadgeFromPanel(currentKpiKey);
 }
 
 function toggleVtask(el) {
@@ -2614,15 +2658,14 @@ function toggleVtask(el) {
   const isDone = cb.classList.contains('done');
   if (isDone) {
     cb.classList.remove('done');
-    const sec = el.closest('.section-block');
-    if (sec) setTimeout(() => renderTaskBadge(sec.id), 0);
     cb.textContent = '';
   } else {
     cb.classList.add('done');
     cb.textContent = '✓';
-    const sec = el.closest('.section-block');
-    if (sec) setTimeout(() => renderTaskBadge(sec.id), 0);
   }
+  const sec = el.closest('.section-block');
+  if (sec) setTimeout(() => renderTaskBadge(sec.id), 0);
+  if (currentKpiKey) setTimeout(() => renderKpiBadgeFromPanel(currentKpiKey), 0);
 }
 
 // ─── MODAL ───
@@ -2643,8 +2686,8 @@ function renderMacroDistricts() {
     [...macroData].sort((a,b)=>b.val-a.val).map(d=>`
       <div class="district-card">
         <div class="district-name">${d.name}</div>
-        <div class="district-val" style="color:#6A8FA8">${(d.val/1000).toFixed(1)} трлн</div>
-        <div class="district-growth up">▲ ${d.growth.toFixed(1)}% ўсиш</div>
+        <div class="district-growth up">▲ ${(d.growth - 100).toFixed(1)}% ўсиш</div>
+        <div class="district-val">${(d.val/1000).toFixed(1)} трлн</div>
         <div class="bar-wrap" style="margin-top:8px">
           <div class="bar-track"><div class="bar-fill" style="width:${(d.val/max*100).toFixed(0)}%;background:#6A8FA8"></div></div>
         </div>
@@ -2657,8 +2700,8 @@ function renderBudgetDistricts() {
     [...budgetData].sort((a,b)=>b.ijro-a.ijro).map(d=>`
       <div class="district-card">
         <div class="district-name">${d.name}</div>
-        <div class="district-val" style="color:#059669">${d.ijro.toFixed(1)} млрд</div>
-        <div class="district-growth up">▲ 108.3% ижро</div>
+        <div class="district-growth up">▲ 8.3% ижро</div>
+        <div class="district-val">${d.ijro.toFixed(1)} млрд</div>
         <div class="bar-wrap" style="margin-top:8px">
           <div class="bar-track"><div class="bar-fill" style="width:90%;background:#059669"></div></div>
         </div>
@@ -2672,8 +2715,8 @@ function renderExportDistricts() {
     [...exportData].sort((a,b)=>b.amal-a.amal).map(d=>`
       <div class="district-card">
         <div class="district-name">${d.name}</div>
-        <div class="district-val" style="color:#0891B2">${(d.amal/1000).toFixed(1)} млн $</div>
-        <div class="district-growth up">▲ ${d.pct.toFixed(1)}% режа ижроси</div>
+        <div class="district-growth up">▲ ${(d.pct - 100).toFixed(1)}% режа ижроси</div>
+        <div class="district-val">${(d.amal/1000).toFixed(1)} млн $</div>
         <div class="bar-wrap" style="margin-top:8px">
           <div class="bar-track"><div class="bar-fill" style="width:${(d.amal/max*100).toFixed(0)}%;background:#0891B2"></div></div>
         </div>
