@@ -12,12 +12,12 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --blue:   #2563EB; --blue-light:   #EFF6FF; --blue-mid:   #DBEAFE;
-    --amber:  #1D4ED8; --amber-light:  #EFF6FF; --amber-mid:  #BFDBFE;
-    --green:  #1E40AF; --green-light:  #EFF6FF; --green-mid:  #BFDBFE;
-    --violet: #1E3A8A; --violet-light: #EFF6FF; --violet-mid: #BFDBFE;
-    --cyan:   #2563EB; --cyan-light:   #EFF6FF; --cyan-mid:   #BFDBFE;
-    --rose:   #1D4ED8; --rose-light:   #EFF6FF; --rose-mid:   #BFDBFE;
+    --blue:   #6A8FA8; --blue-light:   #EBF2F7; --blue-mid:   #D4E5F0;
+    --amber:  #5A7D96; --amber-light:  #EBF2F7; --amber-mid:  #C0D8E8;
+    --green:  #4A6A85; --green-light:  #EBF2F7; --green-mid:  #C0D8E8;
+    --violet: #3A5870; --violet-light: #EBF2F7; --violet-mid: #C0D8E8;
+    --cyan:   #6A8FA8; --cyan-light:   #EBF2F7; --cyan-mid:   #C0D8E8;
+    --rose:   #5A7D96; --rose-light:   #EBF2F7; --rose-mid:   #C0D8E8;
     --gray-50:  #F8FAFC; --gray-100: #F1F5F9; --gray-200: #E2E8F0;
     --gray-400: #94A3B8; --gray-600: #475569; --gray-800: #1E293B;
     --white: #FFFFFF;
@@ -35,7 +35,7 @@
 
   /* ── HEADER ─── */
   .site-header {
-    background: linear-gradient(135deg, #1E3A8A 0%, #1D4ED8 60%, #2563EB 100%);
+    background: linear-gradient(135deg, #3A5870 0%, #5A7D96 60%, #6A8FA8 100%);
     position: relative; overflow: hidden;
     color: #fff;
     color: #fff; padding: 0 32px;
@@ -162,7 +162,6 @@
   .kpi-cards { display: flex; flex-direction: column; gap: 10px; }
   .kpi-card {
     border-radius: var(--radius-sm); padding: 14px 16px;
-    border-left: 4px solid;
   }
   .kpi-card-header { display: flex; justify-content: space-between; align-items: flex-start; }
   .kpi-card-title  { font-size: 12px; font-weight: 600; color: var(--gray-600); }
@@ -269,7 +268,7 @@
   .t-rose   { --tc: var(--rose);   --tl: var(--rose-light);   }
 
   .sec-icon         { background: var(--tl); color: var(--tc); }
-  .sec-kpi .kpi-val { color: #2563EB; }
+  .sec-kpi .kpi-val { color: #6A8FA8; }
   .kpi-card         { background: var(--tl); border-left-color: var(--tc); }
   .kpi-card-big     { color: var(--tc); }
   .bar-fill         { background: var(--tc); }
@@ -319,14 +318,14 @@
   .vtask-section-header {
     display: flex; align-items: center; gap: 10px;
     padding: 9px 14px; border-radius: 10px;
-    background: linear-gradient(90deg, #1E3A8A 0%, #2563EB 100%);
+    background: linear-gradient(90deg, #3A5870 0%, #6A8FA8 100%);
     margin-bottom: 10px;
   }
   .vtask-section-header.amber {
-    background: linear-gradient(90deg, #1E3A8A 0%, #2563EB 100%);
+    background: linear-gradient(90deg, #3A5870 0%, #6A8FA8 100%);
   }
   .vtask-section-header.green {
-    background: linear-gradient(90deg, #1E3A8A 0%, #2563EB 100%);
+    background: linear-gradient(90deg, #3A5870 0%, #6A8FA8 100%);
   }
   .vtask-section-num {
     width: 26px; height: 26px; border-radius: 50%;
@@ -341,8 +340,6 @@
   /* ── VISUAL TASK CARD ─── */
   .vtask-card {
     background: var(--gray-50); border-radius: 10px;
-    border-left: 4px solid #2563EB;
-    padding: 12px 14px; margin-bottom: 8px;
     cursor: pointer; transition: box-shadow .15s, background .1s;
     position: relative;
   }
@@ -368,7 +365,7 @@
     background: #FEF3C7; color: #92400E; flex-shrink: 0;
   }
   .vtask-card-pct.green { background: #D1FAE5; color: #065F46; }
-  .vtask-card-pct.blue  { background: #DBEAFE; color: #1E40AF; }
+  .vtask-card-pct.blue  { background: #D4E5F0; color: #4A6A85; }
   .vtask-card-pct.rose  { background: #FFE4E6; color: #9F1239; }
 
   /* ── MINI STATS ROW inside card ─── */
@@ -380,7 +377,7 @@
     background: #fff; border: 1px solid #E2E8F0;
     border-radius: 7px; padding: 5px 10px; min-width: 90px;
   }
-  .vtask-stat-val { font-size: 14px; font-weight: 800; color: #2563EB; }
+  .vtask-stat-val { font-size: 14px; font-weight: 800; color: #6A8FA8; }
   .vtask-stat-val.amber { color: #D97706; }
   .vtask-stat-val.green { color: #059669; }
   .vtask-stat-lbl { font-size: 10px; color: #94A3B8; margin-top: 1px; }
@@ -392,7 +389,7 @@
     font-size: 12px; color: #475569; line-height: 1.4; padding: 2px 0;
   }
   .vtask-bullet-dot {
-    width: 6px; height: 6px; border-radius: 50%; background: #2563EB;
+    width: 6px; height: 6px; border-radius: 50%; background: #6A8FA8;
     flex-shrink: 0; margin-top: 5px;
   }
   .vtask-bullet-dot.amber { background: #D97706; }
@@ -418,13 +415,13 @@
     border: 1px solid #E2E8F0; overflow: hidden;
   }
   .inf-group-title {
-    background: linear-gradient(90deg, #1E3A8A, #2563EB);
+    background: linear-gradient(90deg, #3A5870, #6A8FA8);
     color: #fff; font-size: 13px; font-weight: 700;
     padding: 8px 14px;
   }
-  .inf-group.amber .inf-group-title  { background: linear-gradient(90deg, #1E3A8A, #2563EB); }
-  .inf-group.green  .inf-group-title { background: linear-gradient(90deg, #1E40AF, #3B82F6); }
-  .inf-group.blue   .inf-group-title { background: linear-gradient(90deg, #1D4ED8, #60A5FA); }
+  .inf-group.amber .inf-group-title  { background: linear-gradient(90deg, #3A5870, #6A8FA8); }
+  .inf-group.green  .inf-group-title { background: linear-gradient(90deg, #4A6A85, #7A9DB8); }
+  .inf-group.blue   .inf-group-title { background: linear-gradient(90deg, #5A7D96, #93B5CC); }
   .inf-group-body { padding: 10px 14px; display: flex; flex-direction: column; gap: 8px; }
   .inf-item {
     display: flex; align-items: flex-start; gap: 10px;
@@ -454,7 +451,7 @@
     font-size: 11px; color: #64748B; font-style: italic;
     padding: 4px 10px 8px; border-top: 1px dashed #E2E8F0; margin-top: 2px;
   }
-  .inf-blue .inf-limit { background: #DBEAFE; color: #1E3A8A; border-color: #93C5FD; }
+  .inf-blue .inf-limit { background: #D4E5F0; color: #3A5870; border-color: #B0CADC; }
 
   /* ── TASK PROGRESS BADGE ─── */
   .eicon { display:inline-block; width:14px; height:14px; vertical-align:-2px; stroke:currentColor; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; margin-right:4px; flex-shrink:0; }
@@ -470,10 +467,10 @@
   .task-badge-ring svg { width: 36px; height: 36px; transform: rotate(-90deg); }
   .task-badge-ring .tb-pct {
     position: absolute; inset: 0; display: flex; align-items: center;
-    justify-content: center; font-size: 9px; font-weight: 700; color: #1E3A8A;
+    justify-content: center; font-size: 9px; font-weight: 700; color: #3A5870;
   }
   .task-badge-text { display: flex; flex-direction: column; gap: 1px; }
-  .task-badge-count { font-size: 15px; font-weight: 800; color: #1E3A8A; line-height: 1; }
+  .task-badge-count { font-size: 15px; font-weight: 800; color: #3A5870; line-height: 1; }
   .task-badge-label { font-size: 10px; color: #64748B; font-weight: 500; }
 
   /* ── QUARTER SWITCHER ─── */
@@ -490,7 +487,7 @@
   }
   .q-btn:hover { background: rgba(255,255,255,0.22); color: #fff; }
   .q-btn.active {
-    background: #fff; color: #1E3A8A;
+    background: #fff; color: #3A5870;
     border-color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.18);
   }
   .q-label {
@@ -557,7 +554,7 @@
   <div class="summary-inner">
     <a class="sum-item" href="#sec1" onclick="openSection('sec1')">
       <div class="sum-feat-icon">
-        <div class="si" style="background:linear-gradient(135deg,#1E3A8A,#2563EB)">
+        <div class="si" style="background:linear-gradient(135deg,#3A5870,#6A8FA8)">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
             <polyline points="16 7 22 7 22 13"/>
@@ -572,7 +569,7 @@
     </a>
     <a class="sum-item" href="#sec2" onclick="openSection('sec2')">
       <div class="sum-feat-icon">
-        <div class="si" style="background:linear-gradient(135deg,#1E3A8A,#2563EB)">
+        <div class="si" style="background:linear-gradient(135deg,#3A5870,#6A8FA8)">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
           </svg>
@@ -585,7 +582,7 @@
     </a>
     <a class="sum-item" href="#sec3" onclick="openSection('sec3')">
       <div class="sum-feat-icon">
-        <div class="si" style="background:linear-gradient(135deg,#1E40AF,#3B82F6)">
+        <div class="si" style="background:linear-gradient(135deg,#4A6A85,#7A9DB8)">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="22 8 12 2 2 8"/>
             <line x1="6" y1="8" x2="6" y2="21"/>
@@ -604,7 +601,7 @@
     </a>
     <a class="sum-item" href="#sec4" onclick="openSection('sec4')">
       <div class="sum-feat-icon">
-        <div class="si" style="background:linear-gradient(135deg,#1E3A8A,#2563EB)">
+        <div class="si" style="background:linear-gradient(135deg,#3A5870,#6A8FA8)">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/>
             <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/>
@@ -621,7 +618,7 @@
     </a>
     <a class="sum-item" href="#sec5" onclick="openSection('sec5')">
       <div class="sum-feat-icon">
-        <div class="si" style="background:linear-gradient(135deg,#1D4ED8,#60A5FA)">
+        <div class="si" style="background:linear-gradient(135deg,#5A7D96,#93B5CC)">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="10"/>
             <line x1="2" y1="12" x2="22" y2="12"/>
@@ -639,7 +636,7 @@
     </a>
     <a class="sum-item" href="#sec6" onclick="openSection('sec6')">
       <div class="sum-feat-icon">
-        <div class="si" style="background:linear-gradient(135deg,#1E3A8A,#2563EB)">
+        <div class="si" style="background:linear-gradient(135deg,#3A5870,#6A8FA8)">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
             <circle cx="9" cy="7" r="4"/>
@@ -680,11 +677,11 @@
         </div>
         <div class="progress-ring-wrap">
           <svg width="64" height="64" viewBox="0 0 64 64">
-            <circle cx="32" cy="32" r="26" fill="none" stroke="#DBEAFE" stroke-width="8"/>
-            <circle cx="32" cy="32" r="26" fill="none" stroke="#2563EB" stroke-width="8"
+            <circle cx="32" cy="32" r="26" fill="none" stroke="#D4E5F0" stroke-width="8"/>
+            <circle cx="32" cy="32" r="26" fill="none" stroke="#6A8FA8" stroke-width="8"
               stroke-dasharray="163.4" stroke-dashoffset="40" stroke-linecap="round"/>
           </svg>
-          <div class="pct" style="color:#2563EB">75%</div>
+          <div class="pct" style="color:#6A8FA8">75%</div>
         </div>
         <div class="task-badge" id="tbadge-sec1"></div>
         <button class="toggle-btn" id="btn-sec1">▼</button>
@@ -784,8 +781,8 @@
         </div>
         <div class="progress-ring-wrap">
           <svg width="64" height="64" viewBox="0 0 64 64">
-            <circle cx="32" cy="32" r="26" fill="none" stroke="#DBEAFE" stroke-width="8"/>
-            <circle cx="32" cy="32" r="26" fill="none" stroke="#2563EB" stroke-width="8"
+            <circle cx="32" cy="32" r="26" fill="none" stroke="#D4E5F0" stroke-width="8"/>
+            <circle cx="32" cy="32" r="26" fill="none" stroke="#6A8FA8" stroke-width="8"
               stroke-dasharray="163.4" stroke-dashoffset="49" stroke-linecap="round"/>
           </svg>
           <div class="pct" style="color:#D97706">70%</div>
@@ -912,7 +909,7 @@
                   <div class="inf-name">Ичимлик суви ва оқова</div>
                   <div class="inf-limit-row">
                     <span class="inf-limit inf-blue">max <b>50%</b></span>
-                    <div class="inf-bar-mini"><div style="width:50%;background:#2563EB"></div></div>
+                    <div class="inf-bar-mini"><div style="width:50%;background:#6A8FA8"></div></div>
                   </div>
                 </div>
               </div>
@@ -922,7 +919,7 @@
                   <div class="inf-name">Маиший чиқинди ташиш</div>
                   <div class="inf-limit-row">
                     <span class="inf-limit inf-blue">max <b>10%</b></span>
-                    <div class="inf-bar-mini"><div style="width:10%;background:#2563EB"></div></div>
+                    <div class="inf-bar-mini"><div style="width:10%;background:#6A8FA8"></div></div>
                   </div>
                 </div>
               </div>
@@ -932,12 +929,12 @@
                   <div class="inf-name">Жамоат транспорти</div>
                   <div class="inf-limit-row">
                     <span class="inf-limit inf-blue">max <b>10%</b></span>
-                    <div class="inf-bar-mini"><div style="width:10%;background:#2563EB"></div></div>
+                    <div class="inf-bar-mini"><div style="width:10%;background:#6A8FA8"></div></div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="inf-note" style="background:#EFF6FF;border-color:#BFDBFE;color:#1E40AF">ℹ️ Тарифлар режа-график асосида Иқтисодиёт ва молия вазирлиги билан келишган ҳолда қайта кўриб чиқилади</div>
+            <div class="inf-note" style="background:#EBF2F7;border-color:#C0D8E8;color:#4A6A85">ℹ️ Тарифлар режа-график асосида Иқтисодиёт ва молия вазирлиги билан келишган ҳолда қайта кўриб чиқилади</div>
           </div>
         </div>
 
@@ -1049,7 +1046,7 @@
 
           <!-- VAZIFA 5 -->
           <div class="vtask-section">
-            <div class="vtask-section-header" style="background:linear-gradient(90deg,#1E3A8A 0%,#2563EB 100%)">
+            <div class="vtask-section-header" style="background:linear-gradient(90deg,#3A5870 0%,#6A8FA8 100%)">
               <div class="vtask-section-num">5</div>
               <div class="vtask-section-title">Қурбон ҳайити арзонлаштирилган ярмаркалари</div>
             </div>
@@ -1094,8 +1091,8 @@
         </div>
         <div class="progress-ring-wrap">
           <svg width="64" height="64" viewBox="0 0 64 64">
-            <circle cx="32" cy="32" r="26" fill="none" stroke="#DBEAFE" stroke-width="8"/>
-            <circle cx="32" cy="32" r="26" fill="none" stroke="#2563EB" stroke-width="8"
+            <circle cx="32" cy="32" r="26" fill="none" stroke="#D4E5F0" stroke-width="8"/>
+            <circle cx="32" cy="32" r="26" fill="none" stroke="#6A8FA8" stroke-width="8"
               stroke-dasharray="163.4" stroke-dashoffset="25" stroke-linecap="round"/>
           </svg>
           <div class="pct" style="color:#059669">85%</div>
@@ -1160,13 +1157,13 @@
             </div>
 
             <!-- 1. Қурилиш -->
-            <div class="vtask-card" onclick="toggleVtask(this)" style="border-left-color:#2563EB;margin-bottom:8px">
+            <div class="vtask-card" onclick="toggleVtask(this)" style="border-left-color:#6A8FA8;margin-bottom:8px">
               <div class="vtask-card-top">
                 <div class="vtask-card-check"></div>
                 <div class="vtask-card-title">🏗️ Қурилиш соҳаси — яширин иқтисодиётни қисқартириш</div>
               </div>
               <div class="vtask-stats">
-                <div class="vtask-stat"><div class="vtask-stat-val" style="color:#2563EB">22 млрд</div><div class="vtask-stat-label">қўшимча тушум</div></div>
+                <div class="vtask-stat"><div class="vtask-stat-val" style="color:#6A8FA8">22 млрд</div><div class="vtask-stat-label">қўшимча тушум</div></div>
                 <div class="vtask-stat"><div class="vtask-stat-val" style="color:#64748B">Ярим йиллик</div><div class="vtask-stat-label">давр</div></div>
               </div>
               <div class="vtask-bullets">
@@ -1286,8 +1283,8 @@
         </div>
         <div class="progress-ring-wrap">
           <svg width="64" height="64" viewBox="0 0 64 64">
-            <circle cx="32" cy="32" r="26" fill="none" stroke="#DBEAFE" stroke-width="8"/>
-            <circle cx="32" cy="32" r="26" fill="none" stroke="#2563EB" stroke-width="8"
+            <circle cx="32" cy="32" r="26" fill="none" stroke="#D4E5F0" stroke-width="8"/>
+            <circle cx="32" cy="32" r="26" fill="none" stroke="#6A8FA8" stroke-width="8"
               stroke-dasharray="163.4" stroke-dashoffset="16" stroke-linecap="round"/>
           </svg>
           <div class="pct" style="color:#7C3AED">90%</div>
@@ -1357,7 +1354,7 @@
                   <span style="font-size:12px;font-weight:700;background:#EDE9FE;color:#6D28D9;border-radius:6px;padding:2px 8px">ўсиш × 2,1</span>
                 </div>
                 <div style="height:7px;background:#DDD6FE;border-radius:4px;overflow:hidden;margin-bottom:6px">
-                  <div style="width:51%;height:100%;background:linear-gradient(90deg,#2563EB,#60A5FA);border-radius:4px"></div>
+                  <div style="width:51%;height:100%;background:linear-gradient(90deg,#6A8FA8,#93B5CC);border-radius:4px"></div>
                 </div>
                 <div style="font-size:11px;color:#6D28D9">Йиллик мақсаднинг <b>51%</b> — биринчи ярим йилликда</div>
               </div>
@@ -1372,7 +1369,7 @@
                   <span style="font-size:12px;font-weight:700;background:#D1FAE5;color:#065F46;border-radius:6px;padding:2px 8px">1,8 баробар</span>
                 </div>
                 <div style="height:7px;background:#A7F3D0;border-radius:4px;overflow:hidden;margin-bottom:6px">
-                  <div style="width:100%;height:100%;background:linear-gradient(90deg,#2563EB,#93C5FD);border-radius:4px"></div>
+                  <div style="width:100%;height:100%;background:linear-gradient(90deg,#6A8FA8,#B0CADC);border-radius:4px"></div>
                 </div>
                 <div style="font-size:11px;color:#065F46">Жами хорижий инвестициялар ва кредитлар</div>
               </div>
@@ -1484,8 +1481,8 @@
         </div>
         <div class="progress-ring-wrap">
           <svg width="64" height="64" viewBox="0 0 64 64">
-            <circle cx="32" cy="32" r="26" fill="none" stroke="#DBEAFE" stroke-width="8"/>
-            <circle cx="32" cy="32" r="26" fill="none" stroke="#2563EB" stroke-width="8"
+            <circle cx="32" cy="32" r="26" fill="none" stroke="#D4E5F0" stroke-width="8"/>
+            <circle cx="32" cy="32" r="26" fill="none" stroke="#6A8FA8" stroke-width="8"
               stroke-dasharray="163.4" stroke-dashoffset="33" stroke-linecap="round"/>
           </svg>
           <div class="pct" style="color:#0891B2">80%</div>
@@ -1568,7 +1565,7 @@
                   <span style="font-size:12px;font-weight:700;background:#CFFAFE;color:#164E63;border-radius:6px;padding:2px 8px">ўсиш +21%</span>
                 </div>
                 <div style="height:7px;background:#A5F3FC;border-radius:4px;overflow:hidden;margin-bottom:6px">
-                  <div style="width:37%;height:100%;background:linear-gradient(90deg,#2563EB,#60A5FA);border-radius:4px"></div>
+                  <div style="width:37%;height:100%;background:linear-gradient(90deg,#6A8FA8,#93B5CC);border-radius:4px"></div>
                 </div>
                 <div style="font-size:11px;color:#0E7490">Йиллик мақсаднинг <b>37%</b> — биринчи ярим йилликда</div>
               </div>
@@ -1583,7 +1580,7 @@
                   <span style="font-size:12px;font-weight:700;background:#D1FAE5;color:#065F46;border-radius:6px;padding:2px 8px">ўсиш +32%</span>
                 </div>
                 <div style="height:7px;background:#A7F3D0;border-radius:4px;overflow:hidden;margin-bottom:6px">
-                  <div style="width:100%;height:100%;background:linear-gradient(90deg,#2563EB,#93C5FD);border-radius:4px"></div>
+                  <div style="width:100%;height:100%;background:linear-gradient(90deg,#6A8FA8,#B0CADC);border-radius:4px"></div>
                 </div>
                 <div style="font-size:11px;color:#065F46">2026 йил якуни бўйича жами экспорт ҳажми</div>
               </div>
@@ -1729,8 +1726,8 @@
         </div>
         <div class="progress-ring-wrap">
           <svg width="64" height="64" viewBox="0 0 64 64">
-            <circle cx="32" cy="32" r="26" fill="none" stroke="#DBEAFE" stroke-width="8"/>
-            <circle cx="32" cy="32" r="26" fill="none" stroke="#2563EB" stroke-width="8"
+            <circle cx="32" cy="32" r="26" fill="none" stroke="#D4E5F0" stroke-width="8"/>
+            <circle cx="32" cy="32" r="26" fill="none" stroke="#6A8FA8" stroke-width="8"
               stroke-dasharray="163.4" stroke-dashoffset="57" stroke-linecap="round"/>
           </svg>
           <div class="pct" style="color:#E11D48">65%</div>
@@ -1877,8 +1874,8 @@
               </div>
               <div class="vtask-stats">
                 <div class="vtask-stat"><div class="vtask-stat-val" style="color:#059669">800 та</div><div class="vtask-stat-label">жами мақсад</div></div>
-                <div class="vtask-stat"><div class="vtask-stat-val" style="color:#2563EB">209 та</div><div class="vtask-stat-label">Андижон ш.</div></div>
-                <div class="vtask-stat"><div class="vtask-stat-val" style="color:#2563EB">71 та</div><div class="vtask-stat-label">Асака тум.</div></div>
+                <div class="vtask-stat"><div class="vtask-stat-val" style="color:#6A8FA8">209 та</div><div class="vtask-stat-label">Андижон ш.</div></div>
+                <div class="vtask-stat"><div class="vtask-stat-val" style="color:#6A8FA8">71 та</div><div class="vtask-stat-label">Асака тум.</div></div>
               </div>
               <div class="vtask-bullets">
                 <div class="vtask-bullet"><div class="vtask-bullet-dot green"></div>Андижон ш. 209, Асака 71, Андижон тум. 63, Шаҳрихон 50, Қўрғонтепа 50</div>
@@ -2486,13 +2483,13 @@ function selectKpi(el, key) {
 // Унификация рангов при загрузке
 (function unifyColors() {
   const map = {
-    '#7C3AED':'#2563EB','#6D28D9':'#1E40AF','#5B21B6':'#1E3A8A',
-    '#4C1D95':'#1E3A8A','#9333EA':'#3B82F6','#A78BFA':'#93C5FD',
-    '#059669':'#2563EB','#065F46':'#1E40AF','#34D399':'#93C5FD',
-    '#0891B2':'#2563EB','#164E63':'#1E40AF','#0E7490':'#1E40AF',
-    '#22D3EE':'#93C5FD','#D97706':'#2563EB','#92400E':'#1E3A8A',
-    '#E11D48':'#1D4ED8','#881337':'#1E3A8A','#DC2626':'#1E40AF',
-    '#B45309':'#1E40AF','#78350F':'#1E3A8A',
+    '#7C3AED':'#6A8FA8','#6D28D9':'#4A6A85','#5B21B6':'#3A5870',
+    '#4C1D95':'#3A5870','#9333EA':'#7A9DB8','#A78BFA':'#B0CADC',
+    '#059669':'#6A8FA8','#065F46':'#4A6A85','#34D399':'#B0CADC',
+    '#0891B2':'#6A8FA8','#164E63':'#4A6A85','#0E7490':'#4A6A85',
+    '#22D3EE':'#B0CADC','#D97706':'#6A8FA8','#92400E':'#3A5870',
+    '#E11D48':'#5A7D96','#881337':'#3A5870','#DC2626':'#4A6A85',
+    '#B45309':'#4A6A85','#78350F':'#3A5870',
   };
   document.querySelectorAll('[style]').forEach(el => {
     let s = el.getAttribute('style');
@@ -2656,10 +2653,10 @@ function renderMacroDistricts() {
     [...macroData].sort((a,b)=>b.val-a.val).map(d=>`
       <div class="district-card">
         <div class="district-name">${d.name}</div>
-        <div class="district-val" style="color:#2563EB">${(d.val/1000).toFixed(1)} трлн</div>
+        <div class="district-val" style="color:#6A8FA8">${(d.val/1000).toFixed(1)} трлн</div>
         <div class="district-growth up">▲ ${d.growth.toFixed(1)}% ўсиш</div>
         <div class="bar-wrap" style="margin-top:8px">
-          <div class="bar-track"><div class="bar-fill" style="width:${(d.val/max*100).toFixed(0)}%;background:#2563EB"></div></div>
+          <div class="bar-track"><div class="bar-fill" style="width:${(d.val/max*100).toFixed(0)}%;background:#6A8FA8"></div></div>
         </div>
         <div style="font-size:11px;color:#94A3B8;margin-top:4px">I чорак: ${(d.q1/1000).toFixed(2)} трлн</div>
       </div>`).join('');
@@ -2727,8 +2724,8 @@ function initCharts(secId) {
       data:{
         labels:['ЯҲМ','Саноат','Қ.хўжалиги','Қурилиш','Б.хизматлари'],
         datasets:[
-          {label:'I чорак амалда (млрд)',data:[22701,25945,5236,3307,14356],backgroundColor:'#BFDBFE'},
-          {label:'Ярим йиллик прогноз (млрд)',   data:[52101,52646,21915,7063,27911],backgroundColor:'#2563EB'},
+          {label:'I чорак амалда (млрд)',data:[22701,25945,5236,3307,14356],backgroundColor:'#C0D8E8'},
+          {label:'Ярим йиллик прогноз (млрд)',   data:[52101,52646,21915,7063,27911],backgroundColor:'#6A8FA8'},
         ]
       },
       options:{responsive:true,maintainAspectRatio:false,
