@@ -336,10 +336,21 @@
   }
 
   /* ── VISUAL TASK CARD ─── */
+  .vtask-section { counter-reset: vtask-counter; }
+  .vtask-card    { counter-increment: vtask-counter; }
+  .vtask-card-top::before {
+    content: counter(vtask-counter);
+    min-width: 20px; height: 20px; border-radius: 50%;
+    background: #6A8FA8; color: #fff;
+    font-size: 10px; font-weight: 800;
+    display: inline-flex; align-items: center; justify-content: center;
+    flex-shrink: 0; margin-top: 1px;
+  }
+
   .vtask-card {
-    background: var(--gray-50); border-radius: 10px;
+    background: #e8e9ea;; border-radius: 10px;
     cursor: pointer; transition: box-shadow .15s, background .1s;
-    position: relative;
+    position: relative; margin-bottom: 10px;
   }
   .vtask-card:hover { box-shadow: var(--shadow); background: #fff; }
   .vtask-card.amber-border { border-left-color: #D97706; }
@@ -349,14 +360,8 @@
   .vtask-card-top {
     display: flex; align-items: flex-start; justify-content: space-between; gap: 8px;
   }
-  .vtask-card-check {
-    width: 20px; height: 20px; border-radius: 5px; border: 2px solid #CBD5E1;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 11px; flex-shrink: 0; margin-top: 1px;
-    cursor: pointer; transition: all .15s;
-  }
-  .vtask-card-check.done { border-color: transparent; background: #059669; color: #fff; }
-  .vtask-card-title { font-size: 13px; font-weight: 600; line-height: 1.4; flex: 1; }
+
+  .vtask-card-title { font-size: 14px; font-weight: 600; line-height: 1.7; flex: 1; }
   .vtask-card-pct {
     font-size: 12px; font-weight: 700; white-space: nowrap;
     padding: 2px 8px; border-radius: 20px;
@@ -953,7 +958,7 @@
             </div>
             <div class="vtask-card amber-border" onclick="toggleVtask(this)">
               <div class="vtask-card-top">
-                <div class="vtask-card-check"></div>
+
                 <div class="vtask-card-title">Аҳоли истеъмоли учун ойига гўшт маҳсулотлари етказиб бериш</div>
                 <span class="vtask-card-pct">Жараёнда</span>
               </div>
@@ -965,7 +970,7 @@
             </div>
             <div class="vtask-card amber-border" onclick="toggleVtask(this)">
               <div class="vtask-card-top">
-                <div class="vtask-card-check"></div>
+
                 <div class="vtask-card-title">Совутгичли мева-сабзавот омборлари қуриш</div>
                 <span class="vtask-card-pct">35%</span>
               </div>
@@ -976,7 +981,7 @@
             </div>
             <div class="vtask-card amber-border" onclick="toggleVtask(this)">
               <div class="vtask-card-top">
-                <div class="vtask-card-check"></div>
+
                 <div class="vtask-card-title">Хориждан наслли қорамол олиб келиш</div>
                 <span class="vtask-card-pct">40%</span>
               </div>
@@ -989,7 +994,7 @@
             </div>
             <div class="vtask-card amber-border" onclick="toggleVtask(this)">
               <div class="vtask-card-top">
-                <div class="vtask-card-check"></div>
+
                 <div class="vtask-card-title">Озуқа базасини мустаҳкамлаш — озуқабоп экинлар экиш</div>
                 <span class="vtask-card-pct">30%</span>
               </div>
@@ -1009,7 +1014,7 @@
             </div>
             <div class="vtask-card" onclick="toggleVtask(this)">
               <div class="vtask-card-top">
-                <div class="vtask-card-check done">✓</div>
+
                 <div class="vtask-card-title">Вилоятда жами <b>409 та</b> омборхона, умумий сиғими <b>145 556 тонна</b></div>
                 <span class="vtask-card-pct green">100%</span>
               </div>
@@ -1034,7 +1039,7 @@
             </div>
             <div class="vtask-card green-border" onclick="toggleVtask(this)">
               <div class="vtask-card-top">
-                <div class="vtask-card-check"></div>
+
                 <div class="vtask-card-title">Аҳолини озиқ-овқат билан таъминлаш захира жамғармасини <b>50 млрд сўм</b>га etkazish</div>
                 <span class="vtask-card-pct">40%</span>
               </div>
@@ -1053,7 +1058,7 @@
             </div>
             <div class="vtask-card" style="border-left-color:#9333EA" onclick="toggleVtask(this)">
               <div class="vtask-card-top">
-                <div class="vtask-card-check"></div>
+
                 <div class="vtask-card-title">Вилоятда жами <b>17 та</b> арзонлаштирилган ярмарка ташкил этилади</div>
                 <span class="vtask-card-pct" style="background:#F3E8FF;color:#6B21A8">Режа</span>
               </div>
@@ -1160,7 +1165,7 @@
             <!-- 1. Қурилиш -->
             <div class="vtask-card" onclick="toggleVtask(this)" style="border-left-color:#6A8FA8;margin-bottom:8px">
               <div class="vtask-card-top">
-                <div class="vtask-card-check"></div>
+
                 <div class="vtask-card-title">🏗️ Қурилиш соҳаси — яширин иқтисодиётни қисқартириш</div>
               </div>
               <div class="vtask-stats">
@@ -1177,7 +1182,7 @@
             <!-- 2. Саноат -->
             <div class="vtask-card" onclick="toggleVtask(this)" style="border-left-color:#7C3AED;margin-bottom:8px">
               <div class="vtask-card-top">
-                <div class="vtask-card-check"></div>
+
                 <div class="vtask-card-title">⚙️ Саноат соҳаси — солиқ маъмурчилиги ва яширин айланма</div>
               </div>
               <div class="vtask-stats">
@@ -1194,7 +1199,7 @@
             <!-- 3. Савдо -->
             <div class="vtask-card" onclick="toggleVtask(this)" style="border-left-color:#D97706;margin-bottom:8px">
               <div class="vtask-card-top">
-                <div class="vtask-card-check"></div>
+
                 <div class="vtask-card-title">🛍️ Савдо соҳаси — айланмаларни тўлиқ расмийлаштириш</div>
               </div>
               <div class="vtask-stats">
@@ -1211,7 +1216,7 @@
             <!-- 4. Хизматлар -->
             <div class="vtask-card" onclick="toggleVtask(this)" style="border-left-color:#059669;margin-bottom:8px">
               <div class="vtask-card-top">
-                <div class="vtask-card-check"></div>
+
                 <div class="vtask-card-title">💼 Хизмат кўрсатиш — яширин айланмаларни қисқартириш</div>
               </div>
               <div class="vtask-stats">
@@ -1228,7 +1233,7 @@
             <!-- 5. Транспорт -->
             <div class="vtask-card" onclick="toggleVtask(this)" style="border-left-color:#0EA5E9;margin-bottom:8px">
               <div class="vtask-card-top">
-                <div class="vtask-card-check"></div>
+
                 <div class="vtask-card-title">🚛 Транспорт хизматлари — тўловларни расмийлаштириш</div>
               </div>
               <div class="vtask-stats">
@@ -1429,7 +1434,7 @@
             <!-- Иш ўринлари -->
             <div class="vtask-card" onclick="toggleVtask(this)" style="border-left-color:#059669;margin-bottom:8px">
               <div class="vtask-card-top">
-                <div class="vtask-card-check"></div>
+
                 <div class="vtask-card-title">👷 Йил якунида янги иш ўринлари яратиш</div>
               </div>
               <div class="vtask-stats">
@@ -1605,7 +1610,7 @@
 
             <div class="vtask-card" onclick="toggleVtask(this)" style="border-left-color:#DC2626;margin-bottom:6px">
               <div class="vtask-card-top">
-                <div class="vtask-card-check"></div>
+
                 <div class="vtask-card-title">⚠️ 46 та камайган + 11 та тўхтаган корхона</div>
               </div>
               <div class="vtask-stats">
@@ -1635,7 +1640,7 @@
 
             <div class="vtask-card" onclick="toggleVtask(this)" style="border-left-color:#0891B2;margin-bottom:10px">
               <div class="vtask-card-top">
-                <div class="vtask-card-check"></div>
+
                 <div class="vtask-card-title">🏭 Йил якунигача 85 та корхона экспортга жалб қилиш</div>
               </div>
               <div class="vtask-stats">
@@ -1652,7 +1657,7 @@
 
             <div class="vtask-card" onclick="toggleVtask(this)" style="border-left-color:#7C3AED;margin-bottom:6px">
               <div class="vtask-card-top">
-                <div class="vtask-card-check"></div>
+
                 <div class="vtask-card-title">🌐 Ҳозир 28 давлатга — 82% 4 давлатга боғлиқ</div>
               </div>
               <div class="vtask-stats">
@@ -1674,7 +1679,7 @@
 
             <div class="vtask-card" onclick="toggleVtask(this)" style="border-left-color:#059669;margin-bottom:6px">
               <div class="vtask-card-top">
-                <div class="vtask-card-check"></div>
+
                 <div class="vtask-card-title">💼 Молиявий ва ташкилий-ҳуқуқий кўмак</div>
               </div>
               <div class="vtask-stats">
@@ -1802,7 +1807,7 @@
 
             <div class="vtask-card" onclick="toggleVtask(this)" style="border-left-color:#E11D48;margin-bottom:6px">
               <div class="vtask-card-top">
-                <div class="vtask-card-check"></div>
+
                 <div class="vtask-card-title">👨‍👩‍👧 Тадбиркорларни молиявий қўллаш орқали даромад ошириш</div>
               </div>
               <div class="vtask-stats">
@@ -1852,7 +1857,7 @@
 
             <div class="vtask-card" onclick="toggleVtask(this)" style="border-left-color:#D97706;margin-bottom:6px">
               <div class="vtask-card-top">
-                <div class="vtask-card-check"></div>
+
                 <div class="vtask-card-title">⚠️ I чорак якунида янги субъектлар камайган 3 та туман</div>
               </div>
               <div class="vtask-bullets">
@@ -1866,7 +1871,7 @@
             <!-- 800 та субъект -->
             <div class="vtask-card" onclick="toggleVtask(this)" style="border-left-color:#059669;margin-bottom:10px">
               <div class="vtask-card-top">
-                <div class="vtask-card-check"></div>
+
                 <div class="vtask-card-title">🏢 Йил якунига қадар 800 та субъект фаолиятини тиклаш</div>
               </div>
               <div class="vtask-stats">
@@ -1896,7 +1901,7 @@
 
             <div class="vtask-card" onclick="toggleVtask(this)" style="border-left-color:#E11D48;margin-bottom:6px">
               <div class="vtask-card-top">
-                <div class="vtask-card-check"></div>
+
                 <div class="vtask-card-title">🏗️ "Оғир туманлар" — Бўстон, Улуғнор, Пахтаобод</div>
               </div>
               <div class="vtask-stats">
@@ -1911,7 +1916,7 @@
 
             <div class="vtask-card" onclick="toggleVtask(this)" style="border-left-color:#7C3AED;margin-bottom:6px">
               <div class="vtask-card-top">
-                <div class="vtask-card-check"></div>
+
                 <div class="vtask-card-title">🌟 "Янги Ўзбекистон қиёфаси" — Асака ва Шаҳрихон</div>
               </div>
               <div class="vtask-stats">
@@ -2193,136 +2198,134 @@ const kpiTasks = {
   sanoat: {
     label: '⚙️ Саноат',
     html: `
-      <!-- SECTION 1 -->
+      <!-- SECTION 1.1 -->
       <div class="vtask-section">
         <div class="vtask-section-header">
-          <div class="vtask-section-num">1</div>
-          <div class="vtask-section-title">Пасайган туманлар ўсишини тиклаш</div>
+          <div class="vtask-section-num">1.1</div>
+          <div class="vtask-section-title">Саноат маҳсулотлари ишлаб чиқариш</div>
         </div>
 
         <div class="vtask-card" onclick="toggleVtask(this)">
           <div class="vtask-card-top">
-            <div class="vtask-card-check">✓</div>
-            <div class="vtask-card-title">Жорий йил I чоракда паст ўсишга эришилган Хонобод шаҳри ва Шаҳрихон тумани бўйича ишланиб, биринчи ярим йилликда вилоят кўрсаткичларидан паст бўлмаган даражада ўсишига эришилади</div>
-            <span class="vtask-card-pct">Жараёнда</span>
+
+            <div class="vtask-card-title"><b>52,6 трлн сўм</b>лик саноат маҳсулоти ишлаб чиқариш (шундан, вилоятдаги махсус иқтисодий ва саноат зоналарида <b>0,5 трлн сўм</b>), ўсиш суръатини <b>7,7%</b>га етказиш</div>
+            <span class="vtask-card-pct blue">II чорак</span>
+          </div>
+        </div>
+
+        <div class="vtask-card" onclick="toggleVtask(this)">
+          <div class="vtask-card-top">
+
+            <div class="vtask-card-title">2026 йил якуни билан саноат маҳсулотлари <b>126,2 трлн сўм</b> (шундан, вилоятдаги махсус иқтисодий ва саноат зоналарида <b>1,2 трлн сўм</b>), ўсиш суръати <b>8,2%</b>ни ташкил этиш</div>
+            <span class="vtask-card-pct">IV чорак</span>
+          </div>
+        </div>
+
+        <div class="vtask-card" onclick="toggleVtask(this)">
+          <div class="vtask-card-top">
+
+            <div class="vtask-card-title">Паст ўсишга эришилган Хонобод шаҳри ва Шаҳрихон тумани бўйича ишланиб, биринчи ярим йилликда вилоят кўрсаткичларидан паст бўлмаган даражада ўсишига эришиш</div>
+            <span class="vtask-card-pct blue">II чорак</span>
+          </div>
+        </div>
+
+        <div class="vtask-card" onclick="toggleVtask(this)">
+          <div class="vtask-card-top">
+
+            <div class="vtask-card-title">Ишлаб чиқариш ҳажмини пасайтирган <b>6 та йирик корхонага</b> кўмаклашиш орқали биринчи ярим йилликда <b>55 млрд сўм</b>лик, йил якуни билан <b>120 млрд сўм</b>лик ҳажмларни қайта тиклаш</div>
+            <span class="vtask-card-pct">IV чорак</span>
+          </div>
+        </div>
+        <div class="vtask-example">
+          <div class="vtask-example-head">📌 Мисол — "Asakatekstil" МЧЖ</div>
+          <div class="vtask-example-body">
+            2025 йилда Россияга йирик экспорт шартномалари мавжудлиги сабабли <b>3 сменада</b> ишлаган. 2026 йилда ташқи ҳамкорлар билан шартнома тузилмагани боис <b>1 сменада</b> ишлаб, ишлаб чиқариш ҳажми ўтган йилга нисбатан <b>56 млрд сўмга</b> камайган. Айни пайтда экспорт шартномалари имзоланиб, йил якунига қадар <b>20–30 млрд сўм</b>лик қўшимча ишлаб чиқариш таъминланади.
+          </div>
+        </div>
+
+        <div class="vtask-card" onclick="toggleVtask(this)">
+          <div class="vtask-card-top">
+
+            <div class="vtask-card-title"><b>1 335 млн долларлик 307 та лойиҳани</b> ишга тушириш (шундан <b>15 таси</b> махсус иқтисодий зоналар ва <b>116 таси</b> саноат зоналаридаги лойиҳалар)</div>
+            <span class="vtask-card-pct">IV чорак</span>
+          </div>
+        </div>
+
+        <div class="vtask-card" onclick="toggleVtask(this)">
+          <div class="vtask-card-top">
+
+            <div class="vtask-card-title">Фаолиятини вақтинча тўхтатган <b>242 та корхонада</b> ишлаб чиқариш жараёнларини қайта йўлга қўйиш</div>
+            <span class="vtask-card-pct">IV чорак</span>
           </div>
           <div class="vtask-bullets">
             <div class="vtask-bullet">
-              <div class="vtask-bullet-dot amber"></div>
-              <span>Ишлаб чиқариш ҳажмини пасайтирган <b>6 та йирик корхонага</b> кўмаклашиш орқали биринчи ярим йилликда <b>55 млрд сўм</b>лик, йил якуни билан <b>120 млрд сўм</b>лик ҳажмларни қайта тиклаш</span>
-            </div>
-            <div class="vtask-bullet">
-              <div class="vtask-bullet-dot amber"></div>
-              <span>Йил якуни билан <b>1 335 млн долларлик 307 та лойиҳани</b> ишга тушириш — шундан 15 таси МИЗ, 116 таси саноат зоналаридаги лойиҳалар</span>
-            </div>
-            <div class="vtask-bullet">
-              <div class="vtask-bullet-dot amber"></div>
-              <span>Фаолиятини вақтинча тўхтатган <b>242 та корхонада</b> ишлаб чиқариш жараёнларини қайта йўлга қўйиш</span>
-            </div>
-            <div class="vtask-bullet">
-              <div class="vtask-bullet-dot amber"></div>
-              <span>Ҳудудий саноатнинг асосий қисмини (<b>67%</b>) ташкил этувчи <b>20 та корхона</b> билан манзилли ишлашни ташкил этиш</span>
+              <div class="vtask-bullet-dot"></div>
+              <span>Булоқбоши туманидаги <b>"My Mady"</b> корхонасида трикотаж маҳсулотлар ишлаб чиқариш фаолияти қайта тикланиши натижасида <b>13 та иш ўрни</b> тикланди</span>
             </div>
           </div>
         </div>
 
-        <div class="vtask-example">
-          <div class="vtask-example-head">📌 Мисол — "Asakatekstil" МЧЖ</div>
-          <div class="vtask-example-body">
-            2025 йилда Россияга йирик экспорт шартномалари мавжудлиги сабабли <b>3 сменада</b> ишлаган. 2026 йилда ташқи ҳамкорлар билан шартнома тузилмагани боис <b>1 сменада</b> ишлаб, ишлаб чиқариш ҳажми ўтган йилга нисбатан <b>56 млрд сўмга</b> камайган. Айни пайтда экспорт шартномалари имзоланиб, йил якунига қадар <b>20–30 млрд сўм</b>лик қўшимча ишлаб чиқариш таъминланади.<br><br>
-            Булоқбоши туманидаги <b>"My Mady"</b> корхонасида трикотаж маҳсулотлар ишлаб чиқариш фаолияти қайта тикланади — <b>13 та иш ўрни</b>.
+        <div class="vtask-card" onclick="toggleVtask(this)">
+          <div class="vtask-card-top">
+
+            <div class="vtask-card-title">Ҳудудий саноатнинг асосий қисмини (<b>67%</b>) ташкил этувчи <b>20 та корхона</b> билан манзилли ишлашни ташкил этиш</div>
+            <span class="vtask-card-pct">IV чорак</span>
           </div>
         </div>
       </div>
 
-      <!-- SECTION 2 -->
+      <!-- SECTION 1.2 -->
       <div class="vtask-section">
         <div class="vtask-section-header amber">
-          <div class="vtask-section-num">2</div>
+          <div class="vtask-section-num">1.2</div>
           <div class="vtask-section-title">Маҳаллийлаштириш дастури</div>
         </div>
 
         <div class="vtask-card amber-border" onclick="toggleVtask(this)">
           <div class="vtask-card-top">
-            <div class="vtask-card-check"></div>
-            <div class="vtask-card-title">Йил якунига қадар <b>12,4 трлн сўм</b>лик маҳсулот ишлаб чиқарилади (ўсиш — 35%)</div>
-            <span class="vtask-card-pct">25%</span>
-          </div>
-          <div class="vtask-stats">
-            <div class="vtask-stat">
-              <span class="vtask-stat-val amber">17 трлн</span>
-              <span class="vtask-stat-lbl">Давлат харидлари</span>
-            </div>
-            <div class="vtask-stat">
-              <span class="vtask-stat-val amber">70%</span>
-              <span class="vtask-stat-lbl">Рақобатли харидлар (2025: 29%)</span>
-            </div>
+
+            <div class="vtask-card-title">Маҳаллийлаштириш дастурига асосан йил якунига қадар <b>12,4 трлн сўм</b>лик маҳсулот ишлаб чиқариш (ўсиш — <b>35%</b>)</div>
+            <span class="vtask-card-pct">IV чорак</span>
           </div>
         </div>
 
         <div class="vtask-card amber-border" onclick="toggleVtask(this)">
           <div class="vtask-card-top">
-            <div class="vtask-card-check"></div>
-            <div class="vtask-card-title">138 та хорижий инвестиция иштирокидаги лойиҳалар учун маҳаллий контент ҳажмини <b>1 505 млн долларга</b> (улуши 45%) етказиш</div>
-            <span class="vtask-card-pct">40%</span>
+
+            <div class="vtask-card-title">Жами <b>17 трлн сўм</b>лик давлат харидлари амалга ошириб, унда рақобатли харидлар улушини <b>70%</b>га етказиш (2025 йилда рақобатли харид улуши — 29%)</div>
+            <span class="vtask-card-pct">IV чорак</span>
           </div>
-          <div class="vtask-stats">
-            <div class="vtask-stat">
-              <span class="vtask-stat-val amber">3 342 млн $</span>
-              <span class="vtask-stat-lbl">Режалаштирилган инвестиция</span>
-            </div>
-            <div class="vtask-stat">
-              <span class="vtask-stat-val amber">1 505 млн $</span>
-              <span class="vtask-stat-lbl">Маҳаллий контент мақсади</span>
-            </div>
-            <div class="vtask-stat">
-              <span class="vtask-stat-val amber">45%</span>
-              <span class="vtask-stat-lbl">Маҳаллий улуш</span>
-            </div>
+        </div>
+
+        <div class="vtask-card amber-border" onclick="toggleVtask(this)">
+          <div class="vtask-card-top">
+
+            <div class="vtask-card-title">2026 йилда ўзлаштириш режалаштирилган <b>3 342 млн долларлик 138 та</b> хорижий инвестиция иштирокидаги лойиҳалар учун маҳаллий контент ҳажми <b>1 505 млн долларга</b> (улуши <b>45%</b>) етказиш</div>
+            <span class="vtask-card-pct">IV чорак</span>
           </div>
         </div>
       </div>
 
-      <!-- SECTION 3 -->
+      <!-- SECTION 1.3 -->
       <div class="vtask-section">
         <div class="vtask-section-header green">
-          <div class="vtask-section-num">3</div>
-          <div class="vtask-section-title">Энергия самарадорлигини ошириш</div>
+          <div class="vtask-section-num">1.3</div>
+          <div class="vtask-section-title">Энергия самарадорлиги</div>
         </div>
 
         <div class="vtask-card green-border" onclick="toggleVtask(this)">
           <div class="vtask-card-top">
-            <div class="vtask-card-check"></div>
-            <div class="vtask-card-title">⚡ Электр энергия тежаш</div>
-            <span class="vtask-card-pct">35%</span>
-          </div>
-          <div class="vtask-stats">
-            <div class="vtask-stat">
-              <span class="vtask-stat-val green">81,4 млн</span>
-              <span class="vtask-stat-lbl">кВт·соат — Ярим йиллик</span>
-            </div>
-            <div class="vtask-stat">
-              <span class="vtask-stat-val green">177,6 млн</span>
-              <span class="vtask-stat-lbl">кВт·соат — Йил якуни</span>
-            </div>
+
+            <div class="vtask-card-title">Энергия самарадорлигини ошириш орқали маҳаллий корхоналарда биринчи ярим йилликда <b>81,4 млн кВт·соат</b> электр энергия (йил якунига қадар <b>177,6 млн кВт·соат</b>) иқтисод қилиш</div>
+            <span class="vtask-card-pct blue">II чорак</span>
           </div>
         </div>
 
         <div class="vtask-card green-border" onclick="toggleVtask(this)">
           <div class="vtask-card-top">
-            <div class="vtask-card-check"></div>
-            <div class="vtask-card-title">🔥 Табиий газ тежаш</div>
-            <span class="vtask-card-pct">30%</span>
-          </div>
-          <div class="vtask-stats">
-            <div class="vtask-stat">
-              <span class="vtask-stat-val green">22,8 млн</span>
-              <span class="vtask-stat-lbl">куб метр — Ярим йиллик</span>
-            </div>
-            <div class="vtask-stat">
-              <span class="vtask-stat-val green">53,1 млн</span>
-              <span class="vtask-stat-lbl">куб метр — Йил якуни</span>
-            </div>
+
+            <div class="vtask-card-title"><b>22,8 млн куб метр</b> табиий газ (йил якунига қадар <b>53,1 млн куб метр</b>) иқтисод қилиш</div>
+            <span class="vtask-card-pct blue">II чорак</span>
           </div>
         </div>
       </div>
@@ -2340,7 +2343,7 @@ const kpiTasks = {
 
         <div class="vtask-card" onclick="toggleVtask(this)">
           <div class="vtask-card-top">
-            <div class="vtask-card-check"></div>
+
             <div class="vtask-card-title">4 та шаҳар ва туманларнинг 6 та кўчаларида қиймати <b>29,7 млрд сўм</b>лик лойиҳалар амалга оширилади</div>
             <span class="vtask-card-pct">40%</span>
           </div>
@@ -2370,7 +2373,7 @@ const kpiTasks = {
 
         <div class="vtask-card amber-border" onclick="toggleVtask(this)">
           <div class="vtask-card-top">
-            <div class="vtask-card-check"></div>
+
             <div class="vtask-card-title">Соҳил бўйларида <b>3 та дам олиш маскани</b> ва хизмат кўрсатиш шаҳобчалари ташкил этилади</div>
             <span class="vtask-card-pct">25%</span>
           </div>
@@ -2396,7 +2399,7 @@ const kpiTasks = {
 
         <div class="vtask-card green-border" onclick="toggleVtask(this)">
           <div class="vtask-card-top">
-            <div class="vtask-card-check"></div>
+
             <div class="vtask-card-title">5 та йўналишда (4 та шаҳар/туман) <b>47 та хизмат кўрсатиш шаҳобчалари</b> ташкил этилади</div>
             <span class="vtask-card-pct">20%</span>
           </div>
@@ -2430,7 +2433,7 @@ const kpiTasks = {
 
         <div class="vtask-card green-border" onclick="toggleVtask(this)">
           <div class="vtask-card-top">
-            <div class="vtask-card-check"></div>
+
             <div class="vtask-card-title">Деҳқончилик йўналишида <b>8 та янги лойиҳалар</b> ишга туширилади</div>
             <span class="vtask-card-pct">35%</span>
           </div>
@@ -2456,7 +2459,7 @@ const kpiTasks = {
 
         <div class="vtask-card amber-border" onclick="toggleVtask(this)">
           <div class="vtask-card-top">
-            <div class="vtask-card-check"></div>
+
             <div class="vtask-card-title">Чорвачилик йўналишида <b>38 та янги лойиҳалар</b> ишга туширилади</div>
             <span class="vtask-card-pct">30%</span>
           </div>
@@ -2486,7 +2489,7 @@ const kpiTasks = {
 
         <div class="vtask-card amber-border" onclick="toggleVtask(this)">
           <div class="vtask-card-top">
-            <div class="vtask-card-check"></div>
+
             <div class="vtask-card-title">Биринчи ярим йилликда кўп қаватли уйлар фойдаланишга топширилади</div>
             <span class="vtask-card-pct">45%</span>
           </div>
@@ -2512,7 +2515,7 @@ const kpiTasks = {
 
         <div class="vtask-card" onclick="toggleVtask(this)">
           <div class="vtask-card-top">
-            <div class="vtask-card-check"></div>
+
             <div class="vtask-card-title">Йил якунига кўра кўп қаватли уйлар фойдаланишга топширилади</div>
             <span class="vtask-card-pct blue">18%</span>
           </div>
@@ -2578,9 +2581,8 @@ function renderKpiBadge(key) {
   } else {
     const tmp = document.createElement('div');
     tmp.innerHTML = data.html;
-    const checks = tmp.querySelectorAll('.vtask-card-check');
-    total = checks.length;
-    checks.forEach(cb => { if (cb.textContent.trim() === '✓') finished++; });
+    total = tmp.querySelectorAll('.vtask-card').length;
+    finished = tmp.querySelectorAll('.vtask-card.done').length;
   }
   badge.innerHTML = `
     <div class="task-badge-text">
@@ -2594,7 +2596,7 @@ function renderKpiBadgeFromPanel(key) {
   const panel = document.getElementById('sec1-tasks');
   if (!badge || !panel) return;
   const all  = panel.querySelectorAll('.vtask-card, .task-item');
-  const done = panel.querySelectorAll('.vtask-card-check.done, .task-checkbox.done');
+  const done = panel.querySelectorAll('.vtask-card.done, .task-checkbox.done');
   badge.innerHTML = `
     <div class="task-badge-text">
       <div class="task-badge-count">${done.length}/${all.length}</div>
@@ -2728,7 +2730,7 @@ function renderTaskBadge(secId) {
   const badge = document.getElementById('tbadge-' + secId);
   if (!body || !badge) return;
   const all  = body.querySelectorAll('.vtask-card, .task-item');
-  const done = body.querySelectorAll('.vtask-card-check.done, .task-checkbox.done');
+  const done = body.querySelectorAll('.vtask-card.done, .task-checkbox.done');
   const total = all.length, finished = done.length;
   const pct = total ? Math.round(finished / total * 100) : 0;
   const circ = 2 * Math.PI * 14; // r=14
@@ -2751,16 +2753,7 @@ function toggleTask(el) {
 }
 
 function toggleVtask(el) {
-  const cb = el.querySelector('.vtask-card-check');
-  if (!cb) return;
-  const isDone = cb.classList.contains('done');
-  if (isDone) {
-    cb.classList.remove('done');
-    cb.textContent = '';
-  } else {
-    cb.classList.add('done');
-    cb.textContent = '✓';
-  }
+  el.classList.toggle('done');
   const sec = el.closest('.section-block');
   if (sec) setTimeout(() => renderTaskBadge(sec.id), 0);
   if (currentKpiKey) setTimeout(() => renderKpiBadgeFromPanel(currentKpiKey), 0);
@@ -2972,7 +2965,8 @@ document.addEventListener('keydown', e => {
 // Биринчи бўлимни очик кўрсатиш
 toggleSection('sec1');
 // Дефолт вазифаларни кўрсатиш
-renderTasks('yahm');
+currentKpiKey = 'sanoat';
+renderTasks('sanoat');
 // Биринчи картани selected қилиш
 const firstCard = document.querySelector('#sec1-kpi-cards .kpi-card.clickable');
 if (firstCard) firstCard.classList.add('selected');
