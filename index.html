@@ -704,6 +704,9 @@
           </div>
           <div class="kpi-card-actions">
             <button class="districts-btn" onclick="openModal('modal-macro')">🗺️ Туман саноат режаси</button>
+            <button class="districts-btn" onclick="openModal('modal-mahalliy')">📦 Маҳаллийлаштириш дастури</button>
+            <button class="districts-btn" onclick="openModal('modal-elec')">⚡ Электр энергия</button>
+            <button class="districts-btn" onclick="openModal('modal-gas')">🔥 Табиий газ</button>
           </div>
           <div class="kpi-card clickable" data-kpi="qishloq" onclick="selectKpi(this,'qishloq')">
             <div class="kpi-card-header">
@@ -2005,6 +2008,63 @@
   </div>
 </div>
 
+<!-- ═══ MODAL: МАҲАЛЛИЙЛАШТИРИШ ═══ -->
+<div class="modal-overlay" id="modal-mahalliy" onclick="closeModalOut(event,'modal-mahalliy')">
+  <div class="modal">
+    <div class="modal-header">
+      <div style="display:flex;align-items:center;gap:12px">
+        <span style="font-size:26px">📦</span>
+        <div>
+          <h2>Маҳаллийлаштириш Дастури — Туманлар Бўйича</h2>
+          <p style="font-size:12px;color:#64748b;margin-top:2px">2026 йил I ярим йиллик • лойиҳалар сони ва қиймати</p>
+        </div>
+      </div>
+      <button class="modal-close" onclick="closeModal('modal-mahalliy')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="district-grid" id="mahalliy-districts"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ MODAL: ЭЛЕКТР ЭНЕРГИЯ ═══ -->
+<div class="modal-overlay" id="modal-elec" onclick="closeModalOut(event,'modal-elec')">
+  <div class="modal">
+    <div class="modal-header">
+      <div style="display:flex;align-items:center;gap:12px">
+        <span style="font-size:26px">⚡</span>
+        <div>
+          <h2>Электр Энергия Тежаш — Туманлар Бўйича</h2>
+          <p style="font-size:12px;color:#64748b;margin-top:2px">2026 йил I ярим йиллик • млн кВт·соат</p>
+        </div>
+      </div>
+      <button class="modal-close" onclick="closeModal('modal-elec')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="district-grid" id="elec-districts"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ MODAL: ТАБИИЙ ГАЗ ═══ -->
+<div class="modal-overlay" id="modal-gas" onclick="closeModalOut(event,'modal-gas')">
+  <div class="modal">
+    <div class="modal-header">
+      <div style="display:flex;align-items:center;gap:12px">
+        <span style="font-size:26px">🔥</span>
+        <div>
+          <h2>Табиий Газ Тежаш — Туманлар Бўйича</h2>
+          <p style="font-size:12px;color:#64748b;margin-top:2px">2026 йил I ярим йиллик • млн куб метр</p>
+        </div>
+      </div>
+      <button class="modal-close" onclick="closeModal('modal-gas')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="district-grid" id="gas-districts"></div>
+    </div>
+  </div>
+</div>
+
 <footer class="site-footer">
   Андижон вилояти ҳокимлиги • Мақсадли кўрсаткичлар мониторинги 2026 • CERR
 </footer>
@@ -2078,6 +2138,44 @@ const employmentData = [
   {name:"Шаҳрихон",   unemployment:2.80, poverty:"Холи ҳудуд", jobs:7493,  mfy:79},
   {name:"Пахтаобод",  unemployment:3.31, poverty:2.4,           jobs:4359,  mfy:17},
   {name:"Хўжаобод",   unemployment:2.90, poverty:"Холи ҳудуд", jobs:3258,  mfy:24},
+];
+
+const mahalliyData = [
+  {name:"Андижон ш.",  h1Projects:39, h1Val:2573574.38, yearProjects:39, yearVal:7504906.91},
+  {name:"Хонобод ш.", h1Projects:5,  h1Val:494649.79,  yearProjects:5,  yearVal:1874535.85},
+  {name:"Олтинкўл",   h1Projects:6,  h1Val:56038.58,   yearProjects:6,  yearVal:212305.94},
+  {name:"Андижон т.", h1Projects:20, h1Val:284539.38,  yearProjects:21, yearVal:1102909.26},
+  {name:"Балиқчи",    h1Projects:2,  h1Val:3856.91,    yearProjects:2,  yearVal:17169.28},
+  {name:"Бўстон",     h1Projects:2,  h1Val:2260.42,    yearProjects:2,  yearVal:8563.75},
+  {name:"Булоқбоши",  h1Projects:3,  h1Val:33975.90,   yearProjects:3,  yearVal:128720.00},
+  {name:"Жалақудуқ",  h1Projects:13, h1Val:106042.98,  yearProjects:13, yearVal:406767.23},
+  {name:"Избоскан",   h1Projects:1,  h1Val:1679.18,    yearProjects:1,  yearVal:7475.00},
+  {name:"Улуғнор",    h1Projects:1,  h1Val:197.96,     yearProjects:1,  yearVal:750.00},
+  {name:"Қўрғонтепа", h1Projects:3,  h1Val:38346.70,   yearProjects:3,  yearVal:148977.50},
+  {name:"Асака",      h1Projects:11, h1Val:238148.80,  yearProjects:12, yearVal:917686.14},
+  {name:"Марҳамат",   h1Projects:6,  h1Val:5749.88,    yearProjects:6,  yearVal:25595.98},
+  {name:"Шаҳрихон",   h1Projects:6,  h1Val:20849.36,   yearProjects:6,  yearVal:72760.26},
+  {name:"Пахтаобод",  h1Projects:2,  h1Val:910.07,     yearProjects:2,  yearVal:3447.85},
+  {name:"Хўжаобод",   h1Projects:2,  h1Val:3721.86,    yearProjects:2,  yearVal:12736.63},
+];
+
+const energyData = [
+  {name:"Андижон ш.",  h1Elec:6.7519, h1Gas:5.0265, yearElec:13.3838, yearGas:11.5689},
+  {name:"Хонобод ш.", h1Elec:3.3876, h1Gas:0.1024, yearElec:6.8152,  yearGas:0.2735},
+  {name:"Олтинкўл",   h1Elec:5.0747, h1Gas:2.4685, yearElec:11.8625, yearGas:6.0812},
+  {name:"Андижон т.", h1Elec:7.6917, h1Gas:1.9465, yearElec:17.7860, yearGas:4.5490},
+  {name:"Балиқчи",    h1Elec:5.5901, h1Gas:1.2770, yearElec:11.3729, yearGas:2.9915},
+  {name:"Бўстон",     h1Elec:3.7282, h1Gas:0.2017, yearElec:7.9341,  yearGas:0.5098},
+  {name:"Булоқбоши",  h1Elec:5.0307, h1Gas:0.6885, yearElec:11.3862, yearGas:1.6780},
+  {name:"Жалақудуқ",  h1Elec:6.2014, h1Gas:0.5981, yearElec:14.5501, yearGas:1.3966},
+  {name:"Избоскан",   h1Elec:3.9397, h1Gas:0.9031, yearElec:7.4043,  yearGas:2.0458},
+  {name:"Улуғнор",    h1Elec:3.6038, h1Gas:0.4876, yearElec:8.1475,  yearGas:1.1505},
+  {name:"Қўрғонтепа", h1Elec:5.0141, h1Gas:0.9616, yearElec:10.6188, yearGas:2.2234},
+  {name:"Асака",      h1Elec:6.5639, h1Gas:2.8285, yearElec:15.1315, yearGas:6.4490},
+  {name:"Марҳамат",   h1Elec:5.2676, h1Gas:0.7563, yearElec:11.9745, yearGas:1.8195},
+  {name:"Шаҳрихон",   h1Elec:5.6980, h1Gas:1.6810, yearElec:12.6469, yearGas:3.7296},
+  {name:"Пахтаобод",  h1Elec:3.8485, h1Gas:0.7865, yearElec:8.3326,  yearGas:1.8051},
+  {name:"Хўжаобод",   h1Elec:4.0148, h1Gas:2.1333, yearElec:8.2745,  yearGas:4.8480},
 ];
 
 // ─── MACRO KPI TASKS DATA ───
@@ -2675,6 +2773,9 @@ function openModal(id) {
   if (id === 'modal-budget')     renderBudgetDistricts();
   if (id === 'modal-export')     renderExportDistricts();
   if (id === 'modal-employment') renderEmploymentDistricts();
+  if (id === 'modal-mahalliy')   renderMahalliyDistricts();
+  if (id === 'modal-elec')       renderElecDistricts();
+  if (id === 'modal-gas')        renderGasDistricts();
 }
 function closeModal(id)       { document.getElementById(id).classList.remove('open'); }
 function closeModalOut(e, id) { if (e.target.id === id) closeModal(id); }
@@ -2721,6 +2822,55 @@ function renderExportDistricts() {
           <div class="bar-track"><div class="bar-fill" style="width:${(d.amal/max*100).toFixed(0)}%;background:#0891B2"></div></div>
         </div>
         <div style="font-size:11px;color:#94A3B8;margin-top:4px">Режа: ${(d.plan/1000).toFixed(1)} млн $</div>
+      </div>`).join('');
+}
+
+function fmtUzs(mln) {
+  if (mln >= 1000000) return (mln / 1000000).toFixed(2) + ' трлн';
+  if (mln >= 1000)    return (mln / 1000).toFixed(1) + ' млрд';
+  return Math.round(mln) + ' млн';
+}
+
+function renderMahalliyDistricts() {
+  const max = Math.max(...mahalliyData.map(d => d.h1Val));
+  document.getElementById('mahalliy-districts').innerHTML =
+    [...mahalliyData].sort((a, b) => b.h1Val - a.h1Val).map(d => `
+      <div class="district-card">
+        <div class="district-name">${d.name}</div>
+        <div class="district-growth" style="color:#6A8FA8">${d.h1Projects} та лойиҳа</div>
+        <div class="district-val">${fmtUzs(d.h1Val)} сўм</div>
+        <div class="bar-wrap" style="margin-top:8px">
+          <div class="bar-track"><div class="bar-fill" style="width:${(d.h1Val / max * 100).toFixed(0)}%;background:#6A8FA8"></div></div>
+        </div>
+        <div style="font-size:11px;color:#94A3B8;margin-top:4px">Йиллик: ${d.yearProjects} та · ${fmtUzs(d.yearVal)} сўм</div>
+      </div>`).join('');
+}
+
+function renderElecDistricts() {
+  const max = Math.max(...energyData.map(d => d.h1Elec));
+  document.getElementById('elec-districts').innerHTML =
+    [...energyData].sort((a, b) => b.h1Elec - a.h1Elec).map(d => `
+      <div class="district-card">
+        <div class="district-name">${d.name}</div>
+        <div class="district-growth" style="color:#4A6A85">${d.h1Elec.toFixed(2)} млн кВт·соат</div>
+        <div class="district-val">Йиллик мақсад: ${d.yearElec.toFixed(1)} млн кВт·соат</div>
+        <div class="bar-wrap" style="margin-top:8px">
+          <div class="bar-track"><div class="bar-fill" style="width:${(d.h1Elec / max * 100).toFixed(0)}%;background:#4A6A85"></div></div>
+        </div>
+      </div>`).join('');
+}
+
+function renderGasDistricts() {
+  const max = Math.max(...energyData.map(d => d.h1Gas));
+  document.getElementById('gas-districts').innerHTML =
+    [...energyData].sort((a, b) => b.h1Gas - a.h1Gas).map(d => `
+      <div class="district-card">
+        <div class="district-name">${d.name}</div>
+        <div class="district-growth" style="color:#3A5870">${d.h1Gas.toFixed(2)} млн м³</div>
+        <div class="district-val">Йиллик мақсад: ${d.yearGas.toFixed(1)} млн м³</div>
+        <div class="bar-wrap" style="margin-top:8px">
+          <div class="bar-track"><div class="bar-fill" style="width:${(d.h1Gas / max * 100).toFixed(0)}%;background:#3A5870"></div></div>
+        </div>
       </div>`).join('');
 }
 
