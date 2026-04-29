@@ -35,11 +35,7 @@
     body {
       margin: 0;
       color: var(--ink);
-      background:
-        linear-gradient(rgba(183, 204, 225, .5) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(183, 204, 225, .5) 1px, transparent 1px),
-        var(--paper);
-      background-size: 34px 34px;
+      background: linear-gradient(145deg, #dce8f5 0%, #eef4fa 50%, #e4eef8 100%) fixed;
       font-family: "Segoe UI", Arial, sans-serif;
       line-height: 1.35;
       overflow-x: hidden;
@@ -58,7 +54,7 @@
       top: 0;
       z-index: 20;
       color: #f7fbff;
-      background: linear-gradient(135deg, #061a2d, #718997);
+      background: linear-gradient(135deg, #061a2d, #454f54);
       box-shadow: 0 4px 16px rgba(7, 26, 45, .2);
     }
 
@@ -159,7 +155,7 @@
     .front-kpi {
       border: 0;
       border-right: 1px solid var(--line);
-      background: transparent;
+      background: var(--blue-soft);;
       min-height: 102px;
       padding: 17px clamp(14px, 1.8vw, 24px);
       display: grid;
@@ -172,7 +168,7 @@
 
     .front-kpi:last-child { border-right: 0; }
     .front-kpi:hover,
-    .front-kpi.active { background: var(--blue-soft); }
+    .front-kpi.active { background: transparent }
 
     .kicon {
       width: 54px;
@@ -181,11 +177,11 @@
       display: grid;
       place-items: center;
       color: #fff;
-      background: linear-gradient(135deg, #182d3f, #637a89);
+      background: linear-gradient(135deg, #3380c1, #637a89);
       box-shadow: 0 12px 24px rgba(20, 95, 184, .25);
     }
 
-    .kicon svg { width: 29px; height: 29px; stroke-width: 2.2; }
+    .kicon svg { width: 26px; height: 26px; }
     .front-kpi h2 {
       margin: 0 0 2px;
       color: #5c6878;
@@ -424,16 +420,111 @@
     .grey { color: var(--grey); background: var(--grey-soft); border: 1px solid #d4dee9; }
     .blue { color: var(--blue); background: var(--blue-soft); border: 1px solid #bad8ff; }
 
-    .decision-grid {
+    .cat-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.15fr) minmax(320px, .85fr);
-      gap: 16px;
-      align-items: start;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .cat-card {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 18px;
+      background: rgba(255,255,255,.92);
+      box-shadow: 0 2px 12px rgba(17,48,80,.06);
+      text-align: left;
+      color: var(--ink);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      cursor: pointer;
+      transition: box-shadow .15s, transform .12s;
+    }
+
+    .cat-card:hover {
+      box-shadow: 0 6px 22px rgba(17,48,80,.13);
+      transform: translateY(-2px);
+    }
+
+    .cat-head {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .cat-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 11px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      background: linear-gradient(135deg, #3380c1, #637a89);
+      box-shadow: 0 6px 16px rgba(20,95,184,.22);
+    }
+
+    .cat-icon svg { width: 22px; height: 22px; }
+
+    .cat-head-text { min-width: 0; }
+
+    .cat-head-text h3 {
+      margin: 0 0 5px;
+      font-size: 25px;
+      line-height: 1.3;
+      overflow-wrap: anywhere;
+    }
+
+    .cat-kpi strong {
+      display: block;
+      font-size: 36px;
+      line-height: 1;
+      color: #0e2132;
+      font-weight: 900;
+    }
+
+    .cat-kpi span {
+      display: block;
+      margin-top: 3px;
+      font-size: 16px;
+      color: var(--muted);
+    }
+
+    .cat-progress {
+      height: 6px;
+      border-radius: 99px;
+      background: var(--line);
+      overflow: hidden;
+      margin-bottom: 6px;
+    }
+
+    .cat-fill {
+      height: 100%;
+      border-radius: 99px;
+    }
+
+    .cat-fill.green { background: var(--green); }
+    .cat-fill.amber { background: var(--amber); }
+    .cat-fill.red   { background: var(--red); }
+
+    .cat-task-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .cat-task-row b {
+      font-size: 13px;
+      color: var(--ink);
+      font-weight: 800;
     }
 
     .scoreline {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       border: 1px solid var(--line);
       border-radius: 10px;
       overflow: hidden;
@@ -451,14 +542,14 @@
     .score span {
       display: block;
       color: var(--muted);
-      font-size: 12px;
+      font-size: 16px;
       font-weight: 850;
     }
 
     .score strong {
       display: block;
       margin-top: 5px;
-      font-size: 32px;
+      font-size: 36px;
       line-height: 1;
     }
 
@@ -501,41 +592,6 @@
     .attention p,
     .task-card p {
       margin: 5px 0 0;
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    .today-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-      padding: 12px;
-    }
-
-    .today {
-      border: 1px solid var(--line);
-      border-radius: 9px;
-      padding: 12px;
-      background: #fbfdff;
-      min-height: 112px;
-    }
-
-    .today b {
-      display: block;
-      font-size: 13px;
-    }
-
-    .today strong {
-      display: block;
-      margin-top: 10px;
-      font-size: 28px;
-      line-height: 1;
-      color: var(--blue);
-    }
-
-    .today span {
-      display: block;
-      margin-top: 5px;
       color: var(--muted);
       font-size: 12px;
     }
@@ -947,8 +1003,11 @@
       border-radius: 9px;
       background: #fff;
       color: var(--ink);
-      font-size: 20px;
+      display: grid;
+      place-items: center;
     }
+
+    .x svg { width: 22px; height: 22px; }
 
     .drawer-body {
       overflow: auto;
@@ -1026,13 +1085,13 @@
       .kpi-mark { display: none; }
       .year-box { justify-self: start; text-align: left; }
       .page-head,
-      .decision-grid,
       .workspace,
       .sector-grid,
       .source-layout {
         grid-template-columns: 1fr;
       }
       .filters { justify-content: flex-start; }
+      .cat-grid,
       .scoreline,
       .district-strip,
       .mini-kpis,
@@ -1082,12 +1141,12 @@
       }
       .user-details { display: none; }
       .front-kpis,
+      .cat-grid,
       .scoreline,
       .district-strip,
       .mini-kpis,
       .sector-kpis,
       .task-grid,
-      .today-grid,
       .evidence-form {
         grid-template-columns: 1fr;
       }
@@ -1187,19 +1246,19 @@
         <h2 id="drawerTitle">Кўрсаткич</h2>
         <p id="drawerSub">манба ва ижро тафсилоти</p>
       </div>
-      <button class="x" id="closeDrawer" aria-label="Ёпиш">×</button>
+      <button class="x" id="closeDrawer" aria-label="Ёпиш"><svg viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.72 6.97a.75.75 0 10-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 101.06 1.06L12 13.06l1.72 1.72a.75.75 0 101.06-1.06L13.06 12l1.72-1.72a.75.75 0 10-1.06-1.06L12 10.94l-1.72-1.72z" clip-rule="evenodd"/></svg></button>
     </div>
     <div class="drawer-body" id="drawerBody"></div>
   </aside>
 
   <script>
     const icons = {
-      trend: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 17l6-6 4 4 7-8"/><path d="M14 7h6v6"/></svg>',
-      dollar: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7H14a3.5 3.5 0 0 1 0 7H6"/></svg>',
-      bank: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 10l9-6 9 6"/><path d="M5 10h14"/><path d="M6 10v8M10 10v8M14 10v8M18 10v8"/><path d="M4 18h16"/></svg>',
-      rocket: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M7 17l-2-2 6-7c2.4-2.8 5.5-3.8 9-4-.2 3.5-1.2 6.6-4 9l-7 6-2-2z"/><path d="M9 15l-3-3"/><circle cx="15" cy="9" r="2"/></svg>',
-      globe: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c3 3 3 15 0 18"/><path d="M12 3c-3 3-3 15 0 18"/></svg>',
-      users: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M16 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9"/><path d="M16 3.1a4 4 0 0 1 0 7.8"/></svg>'
+      trend: '<svg viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M15.22 6.268a.75.75 0 01.968-.431l5.942 2.28a.75.75 0 01.431.97l-2.28 5.941a.75.75 0 11-1.4-.537l1.63-4.251-1.086.483a11.2 11.2 0 00-5.45 5.174.75.75 0 01-1.199.19L9 12.31l-6.22 6.22a.75.75 0 11-1.06-1.06l6.75-6.75a.75.75 0 011.06 0l3.606 3.606a12.695 12.695 0 015.68-4.974l1.086-.483-4.251-1.63a.75.75 0 01-.432-.968z" clip-rule="evenodd"/></svg>',
+      dollar: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 7.5a2.25 2.25 0 100 4.5 2.25 2.25 0 000-4.5z"/><path fill-rule="evenodd" d="M1.5 4.875C1.5 3.839 2.34 3 3.375 3h17.25c1.035 0 1.875.84 1.875 1.875v9.75c0 1.036-.84 1.875-1.875 1.875H3.375A1.875 1.875 0 011.5 14.625v-9.75zM8.25 9.75a3.75 3.75 0 117.5 0 3.75 3.75 0 01-7.5 0zM18.75 9a.75.75 0 00-.75.75v.008c0 .414.336.75.75.75h.008a.75.75 0 00.75-.75V9.75a.75.75 0 00-.75-.75h-.008zM4.5 9.75A.75.75 0 015.25 9h.008a.75.75 0 01.75.75v.008a.75.75 0 01-.75.75H5.25a.75.75 0 01-.75-.75V9.75z" clip-rule="evenodd"/><path d="M2.25 18a.75.75 0 000 1.5c5.4 0 10.63.722 15.6 2.075 1.19.324 2.4-.558 2.4-1.82V18.75a.75.75 0 00-.75-.75H2.25z"/></svg>',
+      bank: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.584 2.376a.75.75 0 01.832 0l9 6a.75.75 0 11-.832 1.248L12 3.901 3.416 9.624a.75.75 0 01-.832-1.248l9-6z"/><path fill-rule="evenodd" d="M20.25 10.332v9.918H21a.75.75 0 010 1.5H3a.75.75 0 010-1.5h.75v-9.918a.75.75 0 01.634-.74A49.109 49.109 0 0112 9c2.59 0 5.134.202 7.616.592a.75.75 0 01.634.74zm-7.5 2.418a.75.75 0 00-1.5 0v6.75a.75.75 0 001.5 0v-6.75zm3-.75a.75.75 0 01.75.75v6.75a.75.75 0 01-1.5 0v-6.75a.75.75 0 01.75-.75zM9 12.75a.75.75 0 00-1.5 0v6.75a.75.75 0 001.5 0v-6.75z" clip-rule="evenodd"/><path d="M12 7.875a1.125 1.125 0 100-2.25 1.125 1.125 0 000 2.25z"/></svg>',
+      rocket: '<svg viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M9.315 7.584C12.195 3.883 16.695 1.5 21.75 1.5a.75.75 0 01.75.75c0 5.056-2.383 9.555-6.084 12.436A6.75 6.75 0 019.75 22.5a.75.75 0 01-.75-.75v-4.131A15.838 15.838 0 016.382 15H2.25a.75.75 0 01-.75-.75 6.75 6.75 0 017.815-6.666zM15 6.75a2.25 2.25 0 100 4.5 2.25 2.25 0 000-4.5z" clip-rule="evenodd"/><path d="M5.26 17.242a.75.75 0 10-.897-1.203 5.243 5.243 0 00-2.05 5.022.75.75 0 00.625.627 5.243 5.243 0 005.022-2.051.75.75 0 10-1.202-.897 3.744 3.744 0 01-3.008 1.51c0-1.23.592-2.323 1.51-3.008z"/></svg>',
+      globe: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.721 12.752a9.711 9.711 0 00-.945-5.003 12.754 12.754 0 01-4.339 2.708 18.991 18.991 0 01-.214 4.772 17.165 17.165 0 005.498-2.477zM14.634 15.55a17.324 17.324 0 00.332-4.647c-.952.227-1.945.347-2.966.347-1.021 0-2.014-.12-2.966-.347a17.515 17.515 0 00.332 4.647 17.385 17.385 0 005.268 0zM9.772 17.119a18.963 18.963 0 004.456 0A17.182 17.182 0 0112 21.724a17.18 17.18 0 01-2.228-4.605zM7.777 15.23a18.87 18.87 0 01-.214-4.774 12.753 12.753 0 01-4.34-2.708 9.711 9.711 0 00-.944 5.004 17.165 17.165 0 005.498 2.477zM21.356 14.752a9.765 9.765 0 01-7.478 6.817 18.64 18.64 0 001.988-4.718 18.627 18.627 0 005.49-2.098zM2.644 14.752c1.682.971 3.53 1.688 5.49 2.099a18.64 18.64 0 001.988 4.718 9.765 9.765 0 01-7.478-6.816zM13.878 2.43a9.755 9.755 0 016.116 3.986 11.267 11.267 0 01-3.746 2.504 18.63 18.63 0 00-2.37-6.49zM12 2.276a17.152 17.152 0 012.805 7.121c-.897.23-1.837.353-2.805.353-.968 0-1.908-.122-2.805-.353A17.151 17.151 0 0112 2.276zM10.122 2.43a18.629 18.629 0 00-2.37 6.49 11.266 11.266 0 01-3.746-2.504 9.754 9.754 0 016.116-3.985z"/></svg>',
+      users: '<svg viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M8.25 6.75a3.75 3.75 0 117.5 0 3.75 3.75 0 01-7.5 0zM15.75 9.75a3 3 0 116 0 3 3 0 01-6 0zM2.25 9.75a3 3 0 116 0 3 3 0 01-6 0zM6.31 15.117A6.745 6.745 0 0112 12a6.745 6.745 0 016.709 7.498.75.75 0 01-.372.568A12.696 12.696 0 0112 21.75c-2.305 0-4.47-.612-6.337-1.684a.75.75 0 01-.372-.568 6.787 6.787 0 011.019-4.38z" clip-rule="evenodd"/><path d="M5.082 14.254a8.287 8.287 0 00-1.308 5.135 9.687 9.687 0 01-1.764-.44l-.115-.04a.563.563 0 01-.373-.487l-.01-.121a3.75 3.75 0 013.57-4.047zM20.226 19.389a8.287 8.287 0 00-1.308-5.135 3.75 3.75 0 013.57 4.047l-.01.121a.563.563 0 01-.373.486l-.115.04c-.567.2-1.156.349-1.764.441z"/></svg>'
     };
 
     const quarters = ['I-чорак', 'II-чорак', 'III-чорак', 'IV-чорак'];
@@ -1214,12 +1273,12 @@
     ];
 
     const kpis = [
-      {id:'grp', label:'ЯҲМ', value:'+7,2%', sub:'52,1 трлн сўм', icon:'trend', sector:'Макро иқтисодиёт', status:'green', note:'H1 мақсад: 107,16%; йил якуни: 107,79%.'},
-      {id:'inflation', label:'Инфляция', value:'2,9%', sub:'II чорак лимити', icon:'dollar', sector:'Инфляция', status:'amber', note:'Паст яхши KPI; II чорак лимити 2,9%.'},
-      {id:'budget', label:'Бюджет', value:'+7,9%', sub:'1,3 трлн сўм', icon:'bank', sector:'Бюджет', status:'green', note:'H1 кутилаётган тушум: 2 598,6 млрд сўм.'},
-      {id:'investment', label:'Инвестиция', value:'2,1 б.р.', sub:'1,8 млрд долл.', icon:'rocket', sector:'Хорижий инвестиция', status:'amber', note:'H1 режа: 1,783 млрд доллар; йил якуни 3,509 млрд доллар.'},
-      {id:'export', label:'Экспорт', value:'+21%', sub:'361,6 млн $', icon:'globe', sector:'Экспорт', status:'green', note:'H1 мақсад: 361,6 млн доллар; йил якуни 976,8 млн доллар.'},
-      {id:'unemployment', label:'Ишсизлик', value:'3,8%', sub:'I ярим йиллик', icon:'users', sector:'Бандлик', status:'amber', note:'Паст яхши KPI; H1 мақсад 3,84%, йил якуни 3,60%.'}
+      {id:'grp', label:'ЯҲМ', value:'+7,2%', sub:'52,1 трлн сўм', icon:'trend', sector:'Макро иқтисодиёт', status:'green', note:'H1 мақсад: 107,16%; йил якуни: 107,79%.', current:{value:'+5,8%', sub:'I чорак ўсиши'}},
+      {id:'inflation', label:'Инфляция', value:'2,9%', sub:'II чорак лимити', icon:'dollar', sector:'Инфляция', status:'amber', note:'Паст яхши KPI; II чорак лимити 2,9%.', current:{value:'3,2%', sub:'I чорак факт'}},
+      {id:'budget', label:'Бюджет', value:'+7,9%', sub:'1,3 трлн сўм', icon:'bank', sector:'Бюджет', status:'green', note:'H1 кутилаётган тушум: 2 598,6 млрд сўм.', current:{value:'+5,4%', sub:'1,0 трлн сўм'}},
+      {id:'investment', label:'Инвестиция', value:'2,1 б.р.', sub:'1,8 млрд долл.', icon:'rocket', sector:'Хорижий инвестиция', status:'amber', note:'H1 режа: 1,783 млрд доллар; йил якуни 3,509 млрд доллар.', current:{value:'880 млн $', sub:'I чорак факт'}},
+      {id:'export', label:'Экспорт', value:'+21%', sub:'361,6 млн $', icon:'globe', sector:'Экспорт', status:'green', note:'H1 мақсад: 361,6 млн доллар; йил якуни 976,8 млн доллар.', current:{value:'196,6 млн $', sub:'I чорак факт'}},
+      {id:'unemployment', label:'Ишсизлик', value:'3,8%', sub:'I ярим йиллик', icon:'users', sector:'Бандлик', status:'amber', note:'Паст яхши KPI; H1 мақсад 3,84%, йил якуни 3,60%.', current:{value:'4,1%', sub:'I чорак факт'}}
     ];
 
     const kpiQuarterValues = {
@@ -1456,40 +1515,51 @@
     }
 
     function renderCommand() {
-      const visibleRows = filteredRows();
-      const visibleTasks = filteredTasks();
-      const risky = visibleRows.filter(r => ['Қизил','Сариқ'].includes(r.status));
-      const missing = visibleRows.filter(r => /киритилмаган|керак|йўқ/i.test(r.evidence)).length;
       const sortedDistricts = [...districts].filter(d => d.name !== 'Андижон вилояти').sort((a,b) => b.undone - a.undone).slice(0, 8);
       $('#view-command').innerHTML = `
         <div class="front-kpis" id="frontKpis"></div>
-        <div class="scoreline">
-          <div class="score"><span>Намуна мониторинг қаторлари</span><strong>${visibleRows.length}</strong></div>
-          <div class="score"><span>Тасдиқланган ижро</span><strong class="text-green">${visibleRows.filter(r => r.status === 'Яшил').length}</strong></div>
-          <div class="score"><span>Эътибор талаб</span><strong class="text-red">${risky.length}</strong></div>
-          <div class="score"><span>Далил/натижа кутилмоқда</span><strong class="text-amber">${missing}</strong></div>
-        </div>
-        <div class="decision-grid">
-          <div class="surface">
-            <div class="surface-head"><div><h3>Бугун қарор талаб қилади</h3><p>Қаторни очинг: манба, масъул ва далил ҳолати кўринади.</p></div><span class="chip red">${risky.length} қатор</span></div>
-            <div class="attention-list">${risky.length ? risky.map((r,i) => attentionRow(r,i)).join('') : '<div class="empty">Танланган давр ва фильтрларда эътибор талаб қиладиган қатор йўқ.</div>'}</div>
-          </div>
-          <div class="surface">
-            <div class="surface-head"><div><h3>Ижро логикаси</h3><p>KPI дан далилгача ягона занжир.</p></div></div>
-            <div class="today-grid">
-              <div class="today"><b>1. KPI</b><strong>6</strong><span>раҳбарият кўрадиган асосий панел</span></div>
-              <div class="today"><b>2. Топшириқ</b><strong>${visibleTasks.length}</strong><span>кафолат хати ва жадваллардан</span></div>
-              <div class="today"><b>3. Ҳудуд</b><strong>16</strong><span>туман/шаҳар кесимида масъул</span></div>
-              <div class="today"><b>4. Далил</b><strong>${allEvidence().length}</strong><span>файл, изоҳ, тасдиқ ҳолати</span></div>
+        <div class="scoreline">${(() => {
+          const total = sectors.reduce((a, s) => a + s.total, 0);
+          const done  = sectors.reduce((a, s) => a + (s.total - s.unfinished), 0);
+          const left  = sectors.reduce((a, s) => a + s.unfinished, 0);
+          return `
+          <div class="score"><span>Жами топшириқлар</span><strong>${total}</strong></div>
+          <div class="score"><span>Бажарилди</span><strong style="color:var(--green)">${done}</strong></div>
+          <div class="score"><span>Бажарилмади</span><strong style="color:var(--red)">${left}</strong></div>`;
+        })()}</div>
+        <div class="cat-grid">${sectors.map(s => {
+          const kpi = kpis.find(k => k.id === s.kpi);
+          const display = kpi?.current ?? {value:'—', sub:''};
+          const done = s.total - s.unfinished;
+          const pct = Math.round(done / s.total * 100);
+          return `<button class="cat-card" data-sector-nav="${esc(s.id)}">
+            <div class="cat-head">
+              <span class="cat-icon">${kpi ? icons[kpi.icon] : ''}</span>
+              <div class="cat-head-text">
+                <h3>${esc(s.title)}</h3>
+              </div>
             </div>
-          </div>
-        </div>
+            <div class="cat-kpi">
+              <strong>${esc(display.value)}</strong>
+              <span>${esc(display.sub)}</span>
+            </div>
+            <div>
+              <div class="cat-progress"><div class="cat-fill ${cls(s.status)}" style="width:${pct}%"></div></div>
+              <div class="cat-task-row"><span>Топшириқлар</span><b>${done}/${s.total} бажарилди</b></div>
+            </div>
+          </button>`;
+        }).join('')}</div>
         <div class="surface mt">
           <div class="surface-head"><div><h3>Туманлар бўйича бажарилмаган топшириқлар</h3><p>Рейтинг эмас; бажарилмаган / жами топшириқ кўринади.</p></div><button class="cmd secondary" data-go="districts">Барча туманлар</button></div>
           <div class="district-strip">${sortedDistricts.map(districtButton).join('')}</div>
         </div>`;
       renderFrontKpis();
       bindRowsAndDistricts();
+      $$('[data-sector-nav]').forEach(btn => btn.addEventListener('click', () => {
+        state.selectedSector = btn.dataset.sectorNav;
+        state.view = 'sectors';
+        render();
+      }));
       $('[data-go="districts"]').addEventListener('click', () => { state.view = 'districts'; render(); });
     }
 
